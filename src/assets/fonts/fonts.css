@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Compact";
+    src: url("./compact.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+@font-face {
+    font-family: "Artistic";
+    src: url("./artistic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }

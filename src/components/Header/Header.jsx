@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import LogoBlack from "../../assets/images/DeFaqtoLogoBlack.png";
 import HeaderVideo from "../../assets/videos/HeaderVideo.mp4";
+import Button from "../Button/Button.jsx";
 import "./Header.css";
 
 function Header(){
@@ -36,7 +37,7 @@ function Header(){
                     <source src={HeaderVideo} type="video/mp4"/>
                     </video>
                     {/* Нужно сделать запасной вариант */}
-                    <button>Забронировать</button>
+                    <Button>Забронировать</Button>
                 </div>
             </header>
         </>

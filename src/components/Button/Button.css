@@ -11,3 +11,10 @@
 .btn:hover {
     background-color: #E3C564;
 }
+
+@media (max-width: 390px) {
+    .btn {
+        padding: 0.5rem;   
+        font-size: 26px;
+    }
+}

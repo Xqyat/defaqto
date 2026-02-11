@@ -2,7 +2,10 @@ import { NavLink } from "react-router-dom";
 import LogoBlack from "../../assets/images/DeFaqtoLogoBlack.png";
 import HeaderVideo from "../../assets/videos/HeaderVideo.mp4";
 import Button from "../Button/Button.jsx";
+import MobileMenu from '../MobileMenu/MobileMenu.jsx';
 import "./Header.css";
+
+
 
 function Header(){
     return(
@@ -18,10 +21,10 @@ function Header(){
                 <div className="header-main">
                     <div className="logo">
                         <NavLink to='/'>
-                        <img src={LogoBlack} alt="DeFAQto" className="logo-black" style={{ width: 366, height: 110 }}/>
+                        <img src={LogoBlack} alt="DeFAQto" />
                         </NavLink>
                     </div>
-                    <nav>
+                    <nav className="main-navbar">
                         <ul>
                             <li><NavLink to='/'>Главная</NavLink></li>
                             <li><NavLink to='/events'>Афиша</NavLink></li>
@@ -30,10 +33,15 @@ function Header(){
                             <li><NavLink to='/contacts'>Контакты</NavLink></li>
                         </ul>
                     </nav>
+                    <MobileMenu />
                 </div>
                 <div className="header-hero">
                     <video className="hero-video"autoPlay muted loop playsInline 
-                    style={{ width: '100%', height: '518px', objectFit: 'cover'}}>
+                    style={{ 
+                        maxWidth: '100%', 
+                        maxHeight: '100%', 
+                        objectFit: 'cover'
+                        }}>
                     <source src={HeaderVideo} type="video/mp4"/>
                     </video>
                     {/* Нужно сделать запасной вариант */}

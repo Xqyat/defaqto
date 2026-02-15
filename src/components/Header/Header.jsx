@@ -8,6 +8,7 @@ import "./Header.css";
 
 
 function Header(){
+    
     return(
         <>
             <header>
@@ -36,15 +37,15 @@ function Header(){
                     <MobileMenu />
                 </div>
                 <div className="header-hero">
-                    <video className="hero-video"autoPlay muted loop playsInline 
-                    style={{ 
-                        maxWidth: '100%', 
-                        maxHeight: '100%', 
-                        objectFit: 'cover'
-                        }}>
-                    <source src={HeaderVideo} type="video/mp4"/>
+                    <video 
+                    className="hero-video"
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    controls={false}>
+                    <source src={HeaderVideo} type="video/mp4" alt="Фоновое видео бара DeFAQto с атмосферным освещением"/>
                     </video>
-                    {/* Нужно сделать запасной вариант */}
                     <Button>Забронировать</Button>
                 </div>
             </header>

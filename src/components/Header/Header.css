@@ -58,6 +58,13 @@ nav a:active {
     padding-bottom: 2rem;
 }
 
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  
+
 
 @media (max-width: 1024px) {
     .main-navbar, .header-infobar { display: none; }

@@ -10,20 +10,28 @@ header {
     background-color: #E3C564;
     display: flex;
     justify-content: space-between;
-    padding: 0.3rem 5rem;
+    padding-left: clamp(10vw, 5vw, 30vw);
+    padding-right: clamp(10vw, 5vw, 30vw);
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 .header-infobar > div {
-    display: inherit;
+    display: flex;
     gap: 3rem;
+    flex-wrap: nowrap;
 }
 
 .header-main {
     display: flex;
     place-items: center;
-    justify-content: center;
-    gap: 8rem;
-    margin: 2rem;
+    justify-content: space-between;
+    padding-left: clamp(10vw, 5vw, 30vw);
+    padding-right: clamp(10vw, 5vw, 30vw);
+    padding-top: clamp(3rem, 4vh, 6rem);
+    padding-bottom: clamp(3rem, 4vh, 6rem);
 }
 
 .logo img {

@@ -1,0 +1,31 @@
+.home {
+    gap: 2rem;
+}
+
+.home > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    gap: 1rem;
+    width: 100%;
+}
+
+.main-separator img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.events-elems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.events-elems img {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: auto;
+}

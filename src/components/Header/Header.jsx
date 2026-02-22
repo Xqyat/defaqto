@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 import LogoBlack from "../../assets/images/DeFaqtoLogoBlack.png";
 import HeaderVideo from "../../assets/videos/HeaderVideo.mp4";
 import Button from "../Button/Button.jsx";
@@ -8,7 +9,8 @@ import "./Header.css";
 
 
 function Header(){
-    
+    const { pathname } = useLocation();
+    const isHome = pathname === '/';
     return(
         <>
             <header>
@@ -37,15 +39,17 @@ function Header(){
                     <MobileMenu />
                 </div>
                 <div className="header-hero">
-                    <video 
-                    className="hero-video"
-                    autoPlay 
-                    muted 
-                    loop 
-                    playsInline 
-                    controls={false}>
-                    <source src={HeaderVideo} type="video/mp4" alt="Фоновое видео бара DeFAQto с атмосферным освещением"/>
-                    </video>
+                    {isHome && (
+                        <video 
+                        className="hero-video"
+                        autoPlay 
+                        muted 
+                        loop 
+                        playsInline 
+                        controls={false}>
+                        <source src={HeaderVideo} type="video/mp4" alt="Фоновое видео бара DeFAQto с атмосферным освещением"/>
+                        </video>
+                    )}
                     <Button>Забронировать</Button>
                 </div>
             </header>

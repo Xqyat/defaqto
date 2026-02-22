@@ -16,7 +16,7 @@ import Contacts from './pages/Contacts/Contacts';
 function App() {
   return (
     <Router>
-      <Header/>
+      <Header isHome={window.location.pathname === '/'}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/events" element={<Events/>}/>

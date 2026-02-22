@@ -1,0 +1,33 @@
+.events {
+    gap: 4vh;
+}
+
+main .events-cardlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center; 
+    gap: 1rem;
+}
+
+.event_card:nth-child(odd) { 
+    justify-self: end;        
+}
+
+.event_card:nth-child(even) { 
+    justify-self: start;      
+}
+
+@media (max-width: 1024px) {
+    main .events-cardlist {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .event_card:nth-child(odd) { 
+        justify-self: unset;        
+    }
+    
+    .event_card:nth-child(even) { 
+        justify-self: unset;      
+    }
+}

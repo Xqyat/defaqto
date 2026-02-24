@@ -1,0 +1,20 @@
+.menu_elem {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 520px;
+    padding: 100px;
+    font-size: 24px;
+}
+
+.menu_elem_title {
+    text-align: center;
+    font-family: 'Artistic';
+    font-size: 36px;
+}
+
+.menu_elem_items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

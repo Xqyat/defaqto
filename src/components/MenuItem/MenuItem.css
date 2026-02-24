@@ -1,0 +1,9 @@
+.menu_item_main {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu_elem hr {
+    border: 1px solid #000000;
+}

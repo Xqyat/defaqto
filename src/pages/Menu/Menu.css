@@ -1,0 +1,59 @@
+.menu-topbar {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-bottom: clamp(3rem, 4vh, 6rem);
+}
+
+.menu-topbar > button {
+    padding: 2rem;
+    font-family: 'Compact';
+    font-size: 32px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-topbar > button:hover {
+    color: #A33333;
+}
+
+.menu-topbar .active {
+    font-size: 36px;
+    color: #E3C564;
+}
+
+.menu-topbar .active:hover {
+    color: #E3C564; 
+}
+
+.menu-tab {
+    font-family: 'Compact';
+    font-size: 32px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-tab:hover {
+    color: #A33333;
+}
+
+.menu-tab.active {
+    color: #E3C564;
+}
+
+.menu-tab.active:hover {
+    color: #E3C564; 
+}
+
+.menu-navbar > ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    justify-content: center;
+}
+
+@media (max-width: 665px) {
+    .menu-tab {
+        font-size: 28px;
+    }
+}

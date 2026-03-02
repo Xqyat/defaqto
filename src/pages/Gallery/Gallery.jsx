@@ -1,8 +1,15 @@
+import './Gallery.css';
+import GalleryRow from '../../components/GalleryRow/GalleryRow.jsx';
+
 function Gallery(){
     return(
         <>
-        <h1>Галерея</h1>
-        <div>Блок</div>
+        <main className="gallery">
+            <GalleryRow/>
+            <GalleryRow/>
+            <GalleryRow/>
+            <GalleryRow/>
+        </main>
         </>
     )
 }

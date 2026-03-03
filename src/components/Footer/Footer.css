@@ -32,23 +32,6 @@ footer > p {
     font-size: 10px;
 }
 
-.copyable {
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid #2B2B2B; 
-}
-
-.copyable:hover {
-    color: #A33333;
-    border-bottom: 1px solid #A33333;
-}
-
-.copyable:active {
-    color: #E3C564;
-    border-bottom: 1px solid #E3C564;
-}
-
 @media (max-width: 1024px) {
     .footer-main {
         flex-direction: column;

@@ -34,3 +34,50 @@ main {
   padding-top: clamp(3rem, 4vh, 6rem);
   padding-bottom: clamp(3rem, 4vh, 6rem);
 }
+
+.copyable {
+  position: relative;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #2B2B2B; 
+}
+
+.copyable:hover {
+  color: #A33333;
+  border-bottom: 1px solid #A33333;
+}
+
+.copyable:active {
+  color: #E3C564;
+  border-bottom: 1px solid #E3C564;
+}
+
+.tooltip-text {
+  position: absolute;
+  bottom: 120%;
+  transform: translateX(-50%);
+  background: #E3C564;
+  color: #2B2B2B;
+  padding: 0.2rem;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.copyable.show-tooltip .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}

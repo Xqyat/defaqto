@@ -1,0 +1,21 @@
+.contacts {
+    gap: 1.5rem;
+}
+
+.contacts-info-title {
+    font-family: 'Artistic';
+}
+
+.contacts-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+    align-items: center;
+}
+
+.contacts-map_container {
+    width: 99vw;
+}
+
+

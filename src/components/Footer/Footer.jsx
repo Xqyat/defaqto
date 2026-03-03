@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import LogoBlack from "../../assets/images/DeFaqtoLogoBlack.png";
 import "./Footer.css";
 
 function Footer(){
-    const copyText = async (text, e) => {
-        try {
-            await navigator.clipboard.writeText(text);
-        } catch (err) {
-            console.error('Ошибка копирования');
-        }
+    const [showAddress, setShowAddress] = useState(false);
+    const [showPhone, setShowPhone] = useState(false);
+    const [showEmail, setShowEmail] = useState(false);
+
+    const copyText = (text) => {
+        navigator.clipboard.writeText(text);
     };
     return(
         <>
@@ -34,16 +35,34 @@ function Footer(){
                 </div>
                 <div className="main right-col">
                 <p>Адрес: 
-                    <span className="copyable" 
-                    onClick={(e) => copyText('Москва, Большая Лубянка, 30/2')}>Москва, Большая Лубянка, 30/2</span>
+                    <span className={`copyable ${showAddress ? 'show-tooltip' : ''}`}
+                        onClick={() => {
+                            copyText('Москва, Большая Лубянка, 30/2');
+                            setShowAddress(true);
+                            setTimeout(() => setShowAddress(false), 800);
+                        }}>
+                            Москва, Большая Лубянка, 30/2
+                    <span className="tooltip-text">Скопировано!</span></span>
                 </p>
                 <p>Телефон: 
-                    <span className="copyable" 
-                    onClick={(e) => copyText('+7 495 624 44 97')}>+7 495 624 44 97</span>
+                    <span className={`copyable ${showPhone ? 'show-tooltip' : ''}`}
+                        onClick={() => {
+                            copyText('+7 495 624 44 97');
+                            setShowPhone(true);
+                            setTimeout(() => setShowPhone(false), 800);
+                        }}>
+                            +7 495 624 44 97
+                    <span className="tooltip-text">Скопировано!</span></span>
                 </p>
                 <p>Почта: 
-                    <span className="copyable" 
-                    onClick={(e) => copyText('bar@defaqto.ru')}>bar@defaqto.ru</span>
+                    <span className={`copyable ${showEmail ? 'show-tooltip' : ''}`} 
+                    onClick={() => { 
+                        copyText('bar@defaqto.ru');
+                        setShowEmail(true);
+                        setTimeout(() => setShowEmail(false), 800);
+                        }}>
+                            bar@defaqto.ru
+                    <span className="tooltip-text">Скопировано!</span></span>
                 </p>
                 </div>
             </div>

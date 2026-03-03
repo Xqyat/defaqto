@@ -38,23 +38,26 @@ header {
     flex-shrink: 0;
 }
 
-nav > ul {
+/* Надо будет пройтись по всему проекту и проверить 
+название классов на соответствие семантике  */
+
+.main-navbar > ul {
     display: flex;
     gap: 1.5rem;
     font-family: "Compact";
     font-size: 32px;
 }
 
-nav a {
+.main-navbar a {
     transition: 0.3s;
 }
 
-nav a:hover {
+.main-navbar a:hover {
     color: #A33333;
     font-size: 30px;
 }
 
-nav a:active {
+.main-navbar a:active {
     color: #E3C564;
 }
 

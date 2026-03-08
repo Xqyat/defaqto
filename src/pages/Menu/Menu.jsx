@@ -58,7 +58,11 @@ function Menu(){
                     ))}
                 </ul>
             </nav>
-            <MenuSection {...currentSectionContent}/>
+            <MenuSection 
+                title={currentSectionContent.title} 
+                items={currentSectionContent.items}
+                maxInitial={8}
+/>
         </main>
         </>
     )

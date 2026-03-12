@@ -1,4 +1,5 @@
 import './GalleryDialog.css';
+import CloseButton from '../CloseButton/CloseButton.jsx';
 import { useState, useEffect } from 'react';
 
 function GalleryDialog({ eventData, isOpen, setIsOpen }) {
@@ -17,12 +18,7 @@ function GalleryDialog({ eventData, isOpen, setIsOpen }) {
     return (
         <section className="gallery_dialog">
             <div className="gallery_dialog-items-overlay" onClick={() => setIsOpen(false)}/>
-            <div className="gallery_dialog-items-closebtn gallery_dialog-closebtn-open" 
-                 onClick={(e) => { e.stopPropagation(); setIsOpen(false); }}>
-                <svg width="23" height="23" viewBox="0 0 23 23" fill="none">
-                    <path d="M21.5 1.5L1.5 21.5M1.50002 1.5L21.5 21.5" stroke="#2B2B2B" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-            </div>
+            <CloseButton onClick={(e) => { e.stopPropagation(); setIsOpen(false); }}/>
 
             <div className="gallery_dialog-full-images">
                 {allImages.map((img, index) => (

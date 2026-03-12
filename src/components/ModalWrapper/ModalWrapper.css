@@ -1,0 +1,27 @@
+body.no-scroll {
+    overflow: hidden;
+}
+
+.modal_wrapper {
+    position: absolute;    
+    inset: 0; 
+}
+
+.modal_wrapper-overlay { 
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 999; 
+    backdrop-filter: blur(15px);
+}
+
+.modal_wrapper-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}

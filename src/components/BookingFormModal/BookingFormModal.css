@@ -1,0 +1,51 @@
+.booking_form {
+  position: fixed;
+  padding: clamp(1px, 2vh, 40px) clamp(1px, 8vw, 60px);
+  width: clamp(300px, 90vw, 630px);
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1px, 30px, 50px);
+  animation: appearing 0.3s;
+}
+
+@keyframes appearing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.booking_form *:not(.booking_form-footer-button):not(.booking_form-header-title ) {
+  width: 100%;
+  font-size: clamp(1rem, 1.1vw, 2rem);
+}
+
+.booking_form-header-title {
+  text-align: center;
+  font-family: 'Artistic';
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.booking_form-footer, .booking_form-header {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1px, 20px, 50px);
+}
+
+.booking_form-input_list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1px, 20px, 20px);
+}
+
+.booking_form-input_list-elem {
+  color: #2B2B2B;
+  border-bottom: 1px solid black;
+}

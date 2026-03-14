@@ -11,6 +11,16 @@
     width: 100%;
 }
 
+.home p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+.home h2 {
+    font-family: "Artistic";
+    font-size: 36px;
+}
+
 .main-separator img {
     max-width: 100%;
     height: auto;

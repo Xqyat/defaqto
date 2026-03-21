@@ -6,7 +6,7 @@ function MenuItem({ name, price, weight }) {
         <div className="menu_elem_item">
             <div className="menu_item_main">
                 <span className="menu-item-name">{name}</span>
-                <span className="menu-item-price">{price}</span>
+                <span className="menu-item-price">{price} ₽</span>
             </div>
             <hr />
             <div className="menu-item-weight">

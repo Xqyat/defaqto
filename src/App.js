@@ -15,6 +15,7 @@ import Contacts from './pages/Contacts/Contacts';
 
 function App() {
   return (
+    // Добавить защищенные руты
     <Router>
       <Header isHome={window.location.pathname === '/'}/>
       <Routes>

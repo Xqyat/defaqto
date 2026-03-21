@@ -1,23 +1,44 @@
-import { useState } from 'react';
-import { foodSections } from '../../data/food.js';
-import { drinkSections } from '../../data/drinks.js';
+import { useState, useEffect } from 'react';
 import MenuSection from '../../components/MenuSection/MenuSection.jsx';
 import './Menu.css';
 
 function Menu(){
     const [activeGroup, setActiveGroup] = useState('food');
     const [activeSectionKey, setActiveSectionKey] = useState('salads');
+    const [menuData, setMenuData] = useState({ food: {}, drinks: {} });
+    const [loading, setLoading] = useState(true);
 
-    const currentDataSections = activeGroup === 'food' ? foodSections : drinkSections;
+    useEffect(() => {
+        fetch('http://localhost:3001/api/menu')
+          .then(r => r.json())
+          .then(data => {
+            setMenuData(data || { food: {}, drinks: {} });
+            setLoading(false);
+            if (data.food && Object.keys(data.food).length > 0) {
+                setActiveSectionKey(Object.keys(data.food)[0]); 
+              } else if (data.drinks && Object.keys(data.drinks).length > 0) {
+                setActiveSectionKey(Object.keys(data.drinks)[0]); 
+              }
+            })
+            .catch(e => {
+              console.error(e);
+              setLoading(false);
+            });
+        }, []);
+
+      const currentDataSections = activeGroup === 'food' 
+        ? (menuData.food || {}) 
+        : (menuData.drinks || {});
     const currentNavSections = Object.entries(currentDataSections).map(([key, section]) => ({
         key,
-        name: section.title
-      }));
+        name: section.title 
+    }));
 
-    const currentSectionContent =
-    (activeGroup === 'food' ? foodSections : drinkSections)[activeSectionKey] || 
-    { title: 'Раздел в разработке', items: [] };
-
+    const currentSectionContent = currentDataSections[activeSectionKey] || { 
+        title: 'Нет данных', 
+        items: [] 
+      };
+    if (loading) return <div>Загрузка меню...</div>;
     return(
         <>
         <main className="menu">
@@ -26,7 +47,8 @@ function Menu(){
                     className={activeGroup === 'food' ? 'active' : ''}
                     onClick={() => {
                         setActiveGroup('food');
-                        setActiveSectionKey('salads');
+                        const firstFoodKey = Object.keys(menuData.food || {})[0];
+                        setActiveSectionKey(firstFoodKey || '');
                     }}
                     >
                     Еда
@@ -36,7 +58,8 @@ function Menu(){
                     className={activeGroup === 'drinks' ? 'active' : ''}
                     onClick={() => {
                         setActiveGroup('drinks');
-                        setActiveSectionKey('cocktails');
+                        const firstDrinkKey = Object.keys(menuData.drinks || {})[0];
+                        setActiveSectionKey(firstDrinkKey || '');
                     }}
                     >
                     Напитки

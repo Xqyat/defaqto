@@ -1,0 +1,68 @@
+.adminmenu_modal-content {
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    background: white;
+    border-radius: 10px;
+  }
+  
+  .adminmenu_modal-title {
+    margin-bottom: 20px;
+  }
+  
+  .adminmenu_modal-label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .adminmenu_modal-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+  }
+  
+  .adminmenu_modal-weight-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .adminmenu_modal-weight-input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .adminmenu_modal-select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    min-width: 60px;
+  }
+  
+  .adminmenu_modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+  
+  .adminmenu_modal-submit {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .adminmenu_modal-submit--active {
+    background: #27ae60;
+    cursor: pointer;
+  }
+  
+  .adminmenu_modal-submit--disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+  }

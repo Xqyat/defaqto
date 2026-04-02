@@ -12,8 +12,9 @@ import Menu from './pages/Menu/Menu';
 import Gallery from './pages/Gallery/Gallery';
 import Contacts from './pages/Contacts/Contacts';
 
-import AdminLogin from './pages/AdminLogin/AdminLogin'
+import AdminLogin from './pages/AdminLogin/AdminLogin';
 import AdminPanel  from './pages/AdminPanel/AdminPanel';
+import AdminMenu from './pages/AdminMenu/AdminMenu';
 
 
 const MainLayout = () => (
@@ -41,8 +42,8 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<ProtectedRoute />}>
         <Route index element={<AdminPanel />} />
-        {/* <Route path="menu" element={<AdminMenu />} />
-        <Route path="events" element={<AdminEvents />} />
+        <Route path="menu" element={<AdminMenu />} />
+        {/*<Route path="events" element={<AdminEvents />} />
         <Route path="gallery" element={<AdminGallery />} />  */}
       </Route>
       </Routes>

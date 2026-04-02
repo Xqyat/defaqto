@@ -1,6 +1,6 @@
 import './MenuItem.css';
 
-function MenuItem({ name, price, weight }) {
+function MenuItem({ name, price, weight_value, weight_unit }) {
     return (
         <>
         <div className="menu_elem_item">
@@ -10,7 +10,7 @@ function MenuItem({ name, price, weight }) {
             </div>
             <hr />
             <div className="menu-item-weight">
-                <span>{weight}</span>
+                <span>{weight_value}{weight_unit}</span>
             </div>
         </div>
         </>

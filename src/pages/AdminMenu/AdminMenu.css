@@ -1,0 +1,90 @@
+.adminmenu_topbar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .adminmenu_topbar-crud {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .adminmenu_select-all {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .adminmenu_gropus {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .adminmenu_gropus-elem {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .adminmenu_gropus-elem--active {
+    background: #3498db;
+  }
+  
+  .adminmenu_gropus-elem--inactive {
+    background: #ecf0f1;
+  }
+  
+  .adminmenu_gropus-elem-categories {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  
+  .adminmenu_category-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  
+  .adminmenu_category-btn--active {
+    background: #2c3e50;
+    color: white;
+  }
+  
+  .adminmenu_category-btn--inactive {
+    background: #ecf0f1;
+    color: #2c3e50;
+  }
+  
+  .adminmenu_items {
+    display: grid;
+    gap: 15px;
+  }
+  
+  .adminmenu_item {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+  }
+  
+  .adminmenu_item--selected {
+    border-color: #3498db;
+    background: #ebf3fd;
+  }
+  
+  .adminmenu_item-checkbox {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .adminmenu_item-content {
+    flex: 1;
+  }

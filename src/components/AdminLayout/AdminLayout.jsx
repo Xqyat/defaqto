@@ -41,7 +41,7 @@ const AdminLayout = () => {
         </nav>
         <Button onClick={logout}>Выход</Button>
       </div>
-      <main>
+      <main className="admin">
         <Outlet />
       </main>
     </div>

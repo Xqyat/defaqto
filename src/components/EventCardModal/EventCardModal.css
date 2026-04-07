@@ -1,0 +1,28 @@
+.event_modal_card {
+    position: fixed;
+    padding: clamp(1px, 2vh, 40px) clamp(1px, 8vw, 60px);
+    width: clamp(300px, 90vw, 630px);
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1px, 30px, 50px);
+    animation: appearing 0.3s;
+  }
+  
+  @keyframes appearing {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .event_modal_card-img img {
+    object-fit: cover;
+    width: 100%;
+  }

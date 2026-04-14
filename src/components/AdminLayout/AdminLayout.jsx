@@ -4,7 +4,6 @@ import Button from '../Button/Button';
 
 const AdminLayout = () => {
   const location = useLocation();
-  const activeTab = location.pathname.includes("/admin") ? "dashboard" : "";
   
   const logout = () => {
     localStorage.removeItem("adminToken");

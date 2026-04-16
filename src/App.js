@@ -12,6 +12,8 @@ import Menu from './pages/Menu/Menu';
 import Gallery from './pages/Gallery/Gallery';
 import Contacts from './pages/Contacts/Contacts';
 
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+
 import AdminLogin from './pages/AdminLogin/AdminLogin';
 import AdminPanel  from './pages/AdminPanel/AdminPanel';
 import AdminMenu from './pages/AdminMenu/AdminMenu';
@@ -37,6 +39,7 @@ function App() {
           <Route path="/menu" element={<Menu/>}/>
           <Route path="/gallery" element={<Gallery/>}/>
           <Route path="/contacts" element={<Contacts/>}/>
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         </Route>
 
         <Route path="/admin/login" element={<AdminLogin />} />

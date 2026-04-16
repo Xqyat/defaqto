@@ -1,71 +1,32 @@
-import { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import LogoBlack from "../../assets/images/DeFaqtoLogoBlack.png";
 import "./Footer.css";
 
 function Footer(){
-    const [showAddress, setShowAddress] = useState(false);
-    const [showPhone, setShowPhone] = useState(false);
-    const [showEmail, setShowEmail] = useState(false);
-
-    const copyText = (text) => {
-        navigator.clipboard.writeText(text);
-    };
     return(
         <>
         <footer>
             <div className="logo">
                 <img src={LogoBlack} alt="DeFAQto" className="logo-black" style={{ width: 192, height: 58 }}/>
             </div>
-            <div className="footer-main">
-                <div className="main left-col">
+            <div className="footer-content">
                     <p>Наши партнёры:  <a href="https://hiddenbar.ru/" className="copyable"
                     style={{
                         color:'#A33333', 
                         borderBottom: '1px solid #A33333'
                         }}>Hidden BAR</a></p>
-                    <div className="left-col social-links">
-                        {/* Под большим вопросом. В инстграм люди не смогут зайти */}
-                        <p>Наши соцсети:</p>
+                    <div className="social-links">
+                        <p>Наши соцсети:</p>                        
                         <div className="social-links-icons">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.0576 0C17.2998 0.000197121 19.914 2.51302 19.998 5.71289V13.9736C19.998 17.3205 17.3205 19.998 13.9736 19.998H6.02441C2.67753 19.998 3.78153e-05 17.3205 0 13.9736V6.02441C6.14331e-05 2.67751 2.6778 0 6.1084 0H14.0576ZM6.02441 1.9248C3.6816 1.92487 1.84082 3.84924 1.84082 6.1084V14.0576C1.84103 16.4003 3.76539 18.2411 6.02441 18.2412H13.9736C16.3163 18.2412 18.157 16.3166 18.1572 14.0576V6.1084C18.1572 3.76555 16.2328 1.92484 13.9736 1.9248H6.02441ZM10.041 5.1875C12.8023 5.1875 14.9775 7.44743 14.9775 10.125C14.9773 12.8024 12.7184 15.0615 10.041 15.0615C7.36372 15.0614 5.10477 12.8023 5.10449 10.125C5.10449 7.44751 7.27989 5.18763 10.041 5.1875ZM10.041 6.94531C8.28397 6.94544 6.86133 8.36793 6.86133 10.125C6.86159 11.8818 8.28414 13.3036 10.041 13.3037C11.798 13.3037 13.2204 11.8819 13.2207 10.125C13.2207 8.36785 11.7982 6.94531 10.041 6.94531ZM15.3125 3.68164C15.9817 3.68186 16.4834 4.18427 16.4834 4.85352C16.4832 5.52254 15.9815 6.02419 15.3125 6.02441C14.6433 6.02441 14.1408 5.52269 14.1406 4.85352C14.1406 4.18412 14.6431 3.68164 15.3125 3.68164Z" fill="#2B2B2B"/>
-                            </svg>
+                            <a className="social-links-icons-vk" href="http://vkontakte.ru/club20507794">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="35px" height="35px">
+                                    <path d="M41,4H9C6.24,4,4,6.24,4,9v32c0,2.76,2.24,5,5,5h32c2.76,0,5-2.24,5-5V9C46,6.24,43.76,4,41,4z M37.72,33l-3.73-0.01 c0,0-0.08,0.01-0.21,0.01c-0.3,0-0.92-0.08-1.65-0.58c-1.31-0.91-2.56-3.17-3.55-3.17c-0.07,0-0.13,0.01-0.19,0.03 c-0.86,0.27-1.12,1.13-1.12,2.18c0,0.37-0.26,0.54-0.96,0.54h-1.93c-2.16,0-4.25-0.05-6.6-2.62c-3.46-3.79-6.7-10.53-6.7-10.53 s-0.18-0.39,0.01-0.62c0.18-0.21,0.6-0.23,0.76-0.23c0.04,0,0.06,0,0.06,0h4c0,0,0.37,0.07,0.64,0.27c0.23,0.17,0.35,0.48,0.35,0.48 s0.68,1.32,1.53,2.81c1.43,2.46,2.2,3.28,2.75,3.28c0.09,0,0.18-0.02,0.27-0.07c0.82-0.45,0.58-4.09,0.58-4.09s0.01-1.32-0.42-1.9 c-0.33-0.46-0.96-0.59-1.24-0.63c-0.22-0.03,0.14-0.55,0.62-0.79c0.62-0.3,1.65-0.36,2.89-0.36h0.6c1.17,0.02,1.2,0.14,1.66,0.25 c1.38,0.33,0.91,1.62,0.91,4.71c0,0.99-0.18,2.38,0.53,2.85c0.05,0.03,0.12,0.05,0.21,0.05c0.46,0,1.45-0.59,3.03-3.26 c0.88-1.52,1.56-3.03,1.56-3.03s0.15-0.27,0.38-0.41c0.22-0.13,0.22-0.13,0.51-0.13h0.03c0.32,0,3.5-0.03,4.2-0.03h0.08 c0.67,0,1.28,0.01,1.39,0.42c0.16,0.62-0.49,1.73-2.2,4.03c-2.82,3.77-3.14,3.49-0.8,5.67c2.24,2.08,2.7,3.09,2.78,3.22 C39.68,32.88,37.72,33,37.72,33z"/>
+                                </svg>
+                            </a>
                         </div>
                     </div>
+                    <p><NavLink to='/privacy-policy'><b>Политика конфиденциальности</b></NavLink></p>
                 </div>
-                <div className="main right-col">
-                <p>Адрес: 
-                    <span className={`copyable ${showAddress ? 'show-tooltip' : ''}`}
-                        onClick={() => {
-                            copyText('Москва, Большая Лубянка, 30/2');
-                            setShowAddress(true);
-                            setTimeout(() => setShowAddress(false), 800);
-                        }}>
-                            Москва, Большая Лубянка, 30/2
-                    <span className="tooltip-text">Скопировано!</span></span>
-                </p>
-                <p>Телефон: 
-                    <span className={`copyable ${showPhone ? 'show-tooltip' : ''}`}
-                        onClick={() => {
-                            copyText('+7 495 624 44 97');
-                            setShowPhone(true);
-                            setTimeout(() => setShowPhone(false), 800);
-                        }}>
-                            +7 495 624 44 97
-                    <span className="tooltip-text">Скопировано!</span></span>
-                </p>
-                <p>Почта: 
-                    <span className={`copyable ${showEmail ? 'show-tooltip' : ''}`} 
-                    onClick={() => { 
-                        copyText('bar@defaqto.ru');
-                        setShowEmail(true);
-                        setTimeout(() => setShowEmail(false), 800);
-                        }}>
-                            bar@defaqto.ru
-                    <span className="tooltip-text">Скопировано!</span></span>
-                </p>
-                </div>
-            </div>
             <p>Copyright © 2010-2022 Дефакто</p>
         </footer>
         </>

@@ -4,6 +4,7 @@ import './Contacts.css';
 function Contacts(){
     const [showAddress, setShowAddress] = useState(false);
     const [showPhone, setShowPhone] = useState(false);
+    const [showEmail, setShowEmail] = useState(false);
 
     const copyText = (text) => {
         navigator.clipboard.writeText(text);
@@ -34,6 +35,14 @@ function Contacts(){
                     +7 495 624 44 97
                     <span className="tooltip-text">Скопировано!</span>
                 </span>
+                <span className={`copyable ${showEmail ? 'show-tooltip' : ''}`} 
+                    onClick={() => { 
+                        copyText('bar@defaqto.ru');
+                        setShowEmail(true);
+                        setTimeout(() => setShowEmail(false), 800);
+                        }}>
+                            bar@defaqto.ru
+                    <span className="tooltip-text">Скопировано!</span></span>
                 <span className="contacts-info-schedule">
                     Часы работы: <br />
                     пн-чт: 12:00-06:00 <br />
@@ -46,7 +55,8 @@ function Contacts(){
                     src="https://yandex.ru/map-widget/v1/?um=constructor%3A4605e606615527363917f404685bae4b031a0a90325a388df02e0d24c7a945f0&amp;source=constructor&scroll=false" 
                     width="100%" 
                     height="637" 
-                    frameBorder="0">
+                    frameBorder="0"
+                    title="Bar Location Map">
                 </iframe>
             </div>
         </main>

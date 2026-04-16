@@ -23,11 +23,11 @@ function Header(){
         <>
             <header>
                 <div className="header-infobar">
-                    <div className="header-infobar-address_and_time">
+                    {/* <div className="header-infobar-address_and_time">
                         <p className="header-infobar-address">Большая Лубянка, 30/2</p>
                         <p className="header-infobar-time">Сегодня до 06:00</p>
                     </div>
-                    <p className="header-infobar-phone">ЗАКАЗЫ: +7 495 624 44 97</p>
+                    <p className="header-infobar-phone">ЗАКАЗЫ: +7 495 624 44 97</p> */}
                 </div>
                 <div className="header-main">
                     <div className="logo">

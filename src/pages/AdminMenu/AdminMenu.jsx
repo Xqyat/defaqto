@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import AdminMenuModal from '../../components/AdminMenuModal/AdminMenuModal';
+import AdminModal from '../../components/AdminModal/AdminModal';
 import './AdminMenu.css';
 
 const AdminMenu = () => {
@@ -331,77 +331,13 @@ const deleteCategory = async () => {
         <>
             <div className="adminmenu_topbar">
               <h1>Управление меню</h1>
-
-              <div className="adminmenu_topbar-crud">
-              <div className="adminmenu_gropus-elem-categories">
-                {categories.map((category) => (
-                  <button
-                    key={category._id}
-                    onClick={() => setActiveCategoryId(category._id)}
-                    className={`adminmenu_category-btn ${
-                      activeCategoryId === category._id
-                        ? 'adminmenu_category-btn--active'
-                        : 'adminmenu_category-btn--inactive'
-                    }`}
-                  >
-                    {category.name}
-                  </button>
-                ))}
-              </div>
-                <label className="adminmenu_select-all">
-                  <input
-                    type="checkbox"
-                    checked={selectAll}
-                    onChange={toggleSelectAll}
-                  />
-                  Выделить все ({menuItems.length})
-                </label>
-
-                <button onClick={() => setIsAddModalOpen(true)}>Добавить</button>
-
-                <AdminMenuModal
-                  isOpen={isAddModalOpen}
-                  onClose={() => setIsAddModalOpen(false)}
-                  onSubmit={handleAddItem}
-                  group={activeGroup}
-                  category={currentCategory?.name || ''}
-                  newItem={newItem}
-                  mode="add"
-                  entityType="item"
-                />
-
-                <button
-                  onClick={openEditModal}
-                  disabled={selectedItems.length !== 1}
-                >
-                  Редактировать
-                </button>
-
-                <AdminMenuModal
-                  isOpen={isEditModalOpen}
-                  onClose={() => setIsEditModalOpen(false)}
-                  onSubmit={handleEditItem}
-                  group={activeGroup}
-                  category={currentCategory?.name || ''}
-                  newItem={editingItem}
-                  mode="edit"
-                  entityType="item"
-                />
-
-                <button
-                  onClick={deleteSelected}
-                  disabled={selectedItems.length === 0}
-                >
-                  Удалить
-                </button>
-              </div>
-            </div>
-            <div className="adminmenu_topbar-crud_categories">
+              <h4>Управление категориями</h4>
+              <div className="adminmenu_topbar-crud_categories">
               <button onClick={() => setIsAddCategoryModalOpen(true)}>
                 Добавить категорию
               </button>
 
-              <AdminMenuModal
+              <AdminModal
                 isOpen={isAddCategoryModalOpen}
                 onClose={() => setIsAddCategoryModalOpen(false)}
                 onSubmit={handleAddCategory}
@@ -419,7 +355,7 @@ const deleteCategory = async () => {
                 Редактировать
               </button>
 
-              <AdminMenuModal
+              <AdminModal
                 isOpen={isEditCategoryModalOpen}
                 onClose={() => setIsEditCategoryModalOpen(false)}
                 onSubmit={handleEditCategory}
@@ -437,7 +373,57 @@ const deleteCategory = async () => {
                 Удалить
               </button>
             </div>
+            <h4>Управление позициями</h4>
+            <div className="adminmenu_topbar-crud">
+              <label className="adminmenu_select-all">
+                <input
+                  type="checkbox"
+                  checked={selectAll}
+                  onChange={toggleSelectAll}
+                />
+                Выделить все ({menuItems.length})
+              </label>
 
+              <button onClick={() => setIsAddModalOpen(true)}>Добавить</button>
+
+              <AdminModal
+                isOpen={isAddModalOpen}
+                onClose={() => setIsAddModalOpen(false)}
+                onSubmit={handleAddItem}
+                group={activeGroup}
+                category={currentCategory?.name || ''}
+                newItem={newItem}
+                mode="add"
+                entityType="item"
+              />
+
+              <button
+                onClick={openEditModal}
+                disabled={selectedItems.length !== 1}
+              >
+                Редактировать
+              </button>
+
+              <AdminModal
+                isOpen={isEditModalOpen}
+                onClose={() => setIsEditModalOpen(false)}
+                onSubmit={handleEditItem}
+                group={activeGroup}
+                category={currentCategory?.name || ''}
+                newItem={editingItem}
+                mode="edit"
+                entityType="item"
+              />
+
+              <button
+                onClick={deleteSelected}
+                disabled={selectedItems.length === 0}
+              >
+                Удалить
+              </button>
+            </div>
+          </div>
+            
             <div className="adminmenu_gropus">
               <button
                 className={`adminmenu_gropus-elem ${

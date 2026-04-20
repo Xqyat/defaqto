@@ -31,11 +31,6 @@ const AdminLayout = () => {
                         События
                     </Link>
                 </li>
-                <li>
-                    <Link to="/admin/gallery">
-                        Галерея
-                    </Link>
-                </li>
             </ul>              
         </nav>
         <Button onClick={logout}>Выход</Button>

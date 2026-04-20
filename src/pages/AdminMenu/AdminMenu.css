@@ -5,7 +5,7 @@
     align-items: center;
   }
   
-  .adminmenu_topbar-crud {
+  .adminmenu_topbar-crud, .adminmenu_topbar-crud_categories {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;

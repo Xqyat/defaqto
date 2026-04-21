@@ -31,18 +31,18 @@ function Events(){
         <main className="events">
             <div className='events-cardlist'>
                 {events.map(event => (
-                <EventCard 
-                    key={event.id}
-                    img={event.img}
-                    name={event.name}
-                    description={event.description}
-                    date={event.date}
-                    time={event.time}
-                    entrance={event.entrance}
-                    onClick={() => {handleEventClick(event);}}                      
-                />
+                    <EventCard 
+                        key={event.id}
+                        img={event.img}
+                        name={event.name}
+                        description={event.description}
+                        date={event.date}
+                        time={event.time}
+                        entranceType={event.entranceType}
+                        entrancePrice={event.entrancePrice}
+                        onClick={() => {handleEventClick(event);}}                      
+                    />
                 ))}
-                
             </div>
             {events.length === 0 && <p>Событий пока нет</p>}
             <Button>Далее...</Button>

@@ -3,7 +3,16 @@ import "./EventCardModal.css";
 
 const EventCardModal = ({ isOpen, onClose, event }) => {
 
-    if (!isOpen) return null;  
+    if (!isOpen || !event) return null;  
+
+    const formattedDate = event.date
+    ? new Date(event.date).toLocaleDateString('ru-RU')
+    : '';
+
+    const entranceText =
+    event.entranceType === 'paid'
+      ? `Платный${event.entrancePrice !== null && event.entrancePrice !== undefined ? ` — ${event.entrancePrice} ₽` : ''}`
+      : 'Бесплатный';
       
     return (
       <ModalWrapper onClose={onClose}>
@@ -14,9 +23,9 @@ const EventCardModal = ({ isOpen, onClose, event }) => {
           <div className="event_modal_card-info">
             <h3 className="event_modal_card-info-name">{event.name}</h3>
             <p className="event_modal_card-info-description">{event.description}</p>
-            <p className="event_modal_card-info-date">Дата: {event.date}</p>
+            <p className="event_modal_card-info-date">Дата: {formattedDate}</p>
             <p className="event_modal_card-info-time">Время: {event.time}</p>
-            <p className="event_modal_card-info-entarance">Вход: {event.entrance}</p>
+            <p className="event_modal_card-info-entarance">Вход: {entranceText}</p>
           </div>
         </div>
       </ModalWrapper>

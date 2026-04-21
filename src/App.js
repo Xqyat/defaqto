@@ -17,6 +17,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import AdminLogin from './pages/AdminLogin/AdminLogin';
 import AdminPanel  from './pages/AdminPanel/AdminPanel';
 import AdminMenu from './pages/AdminMenu/AdminMenu';
+import AdminEvents from './pages/AdminEvents/AdminEvents';
 
 
 const MainLayout = () => (
@@ -46,8 +47,7 @@ function App() {
         <Route path="/admin" element={<ProtectedRoute />}>
         <Route index element={<AdminPanel />} />
         <Route path="menu" element={<AdminMenu />} />
-        {/*<Route path="events" element={<AdminEvents />} />
-        <Route path="gallery" element={<AdminGallery />} />  */}
+        <Route path="events" element={<AdminEvents />} />
       </Route>
       </Routes>
     </Router>

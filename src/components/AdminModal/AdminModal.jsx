@@ -43,12 +43,15 @@ const AdminModal = ({
   
   const isCategory = entityType === 'category';
   const isEvent = entityType === 'event';
+
   const emptyForm = isCategory
   ? emptyCategoryForm
   : isEvent
   ? emptyEventForm
   : emptyItemForm;
+
   const [formData, setFormData] = useState(emptyForm);
+  const [imageFile, setImageFile] = useState(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -59,6 +62,7 @@ const AdminModal = ({
           ? emptyEventForm
           : emptyItemForm)
       );
+      setImageFile(null);
     }
   }, [isOpen, initialData, entityType]);
 
@@ -68,7 +72,7 @@ const AdminModal = ({
   const isValid = isCategory
   ? formData.name?.trim()
   : isEvent
-  ? formData.img?.trim() &&
+  ? (imageFile || formData.img) &&
     formData.name?.trim() &&
     formData.description?.trim() &&
     formData.date &&
@@ -85,6 +89,7 @@ const AdminModal = ({
           : isEvent
           ? 'Заполните все обязательные поля события' 
           : 'Заполните название и цену');
+          return;
       }
   
       const dataToSend = isCategory
@@ -98,7 +103,8 @@ const AdminModal = ({
         ? {
             _id: formData._id,
             id: formData.id,
-            img: formData.img.trim(),
+            img: formData.img || '',
+            imageFile: imageFile,
             name: formData.name.trim(),
             description: formData.description.trim(),
             date: formData.date,
@@ -117,6 +123,7 @@ const AdminModal = ({
   
       onSubmit(dataToSend);
       setFormData(emptyForm);
+      setImageFile(null);
     };
   
     if (!isOpen) return null;
@@ -202,12 +209,14 @@ const AdminModal = ({
           {isEvent && (
             <>
               <label className="adminmenu_modal-label">
-                Ссылка на изображение:
+                Изображение:
                 <input
-                  type="text"
-                  value={formData.img || ''}
-                  onChange={(e) => setFormData({ ...formData, img: e.target.value })}
-                  className="adminmenu_modal-input"
+                   type="file"
+                   accept="image/*"
+                   onChange={(e) => {
+                     const file = e.target.files?.[0] || null;
+                     setImageFile(file);
+                   }}
                 />
               </label>
 

@@ -49,3 +49,22 @@
   color: #2B2B2B;
   border-bottom: 1px solid black;
 }
+
+.booking_form-footer {
+  width: 100%;
+  gap: 1rem;
+  text-align: left;
+}
+
+.booking_form-checkbox {
+  display: flex;
+  gap: 1rem;
+}
+
+.booking_form-checkbox input {
+  width: auto !important;
+}
+
+.booking_form-date_hint {
+  position: absolute;
+}

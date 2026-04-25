@@ -40,7 +40,6 @@ function Header(){
                             <li><NavLink to='/'>Главная</NavLink></li>
                             <li><NavLink to='/events'>Афиша</NavLink></li>
                             <li><NavLink to='/menu'>Меню</NavLink></li>
-                            <li><NavLink to='/gallery'>Галерея</NavLink></li>
                             <li><NavLink to='/contacts'>Контакты</NavLink></li>
                         </ul>
                     </nav>

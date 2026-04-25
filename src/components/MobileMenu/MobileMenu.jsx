@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import LogoBlack from "../../assets/images/DeFaqtoLogoBlack.png";
 import "./MobileMenu.css";
 import { useState, useEffect  } from 'react';
+import CloseButton from "../CloseButton/CloseButton";
 
 function MobileMenu(){
     const [isOpen, setIsOpen] = useState(false);
@@ -24,11 +25,7 @@ function MobileMenu(){
             </button>
             {isOpen && <div className="menu-overlay" onClick={() => setIsOpen(false)} />}
             <nav className={`mobile-nav ${isOpen ? 'mobile-nav-open' : 'mobile-nav-closed'}`}>
-                <div className="mobile-nav-closebtn" onClick={() => setIsOpen(false)}>
-                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21.5 1.5L1.5 21.5M1.50002 1.5L21.5 21.5" stroke="#2B2B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
+                <CloseButton onClick={() => setIsOpen(false)}/>
                 <div className="logo">
                     <img src={LogoBlack} alt="DeFAQto" style={{ 
                         maxWidth: '220px'
@@ -38,7 +35,6 @@ function MobileMenu(){
                     <li><NavLink to='/' onClick={() => setIsOpen(false)}>Главная</NavLink></li>
                     <li><NavLink to='/events' onClick={() => setIsOpen(false)}>Афиша</NavLink></li>
                     <li><NavLink to='/menu' onClick={() => setIsOpen(false)}>Меню</NavLink></li>
-                    <li><NavLink to='/gallery' onClick={() => setIsOpen(false)}>Галерея</NavLink></li>
                     <li><NavLink to='/contacts' onClick={() => setIsOpen(false)}>Контакты</NavLink></li>
                 </ul>
             </nav>

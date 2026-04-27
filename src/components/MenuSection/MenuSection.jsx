@@ -13,7 +13,7 @@ function MenuSection ({title, items, maxInitial = 8}) {
                 <h4 className="menu_elem_title">-{title}-</h4>
                     <div className="menu_elem_column">
                         {visibleItems.map((item) => (
-                            <MenuItem key={item.id} {...item} />
+                            <MenuItem key={item._id} {...item} />
                         ))}
                     </div>
                     {showButton && (

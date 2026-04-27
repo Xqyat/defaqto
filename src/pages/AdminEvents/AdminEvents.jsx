@@ -22,6 +22,8 @@ const AdminEvents = () => {
     description: '',
     date: '',
     time: '',
+    endDate: '',
+    endTime: '',
     entranceType: 'free',
     entrancePrice: '',
   });
@@ -89,6 +91,8 @@ const AdminEvents = () => {
         formData.append('description', data.description);
         formData.append('date', data.date);
         formData.append('time', data.time);
+        formData.append('endDate', data.endDate);
+        formData.append('endTime', data.endTime);
         formData.append('entranceType', data.entranceType);
 
         if (data.entrancePrice !== null && data.entrancePrice !== undefined) {
@@ -127,6 +131,8 @@ const AdminEvents = () => {
             description: '',
             date: '',
             time: '',
+            endDate: '',
+            endTime: '',
             entranceType: 'free',
             entrancePrice: '',
         });
@@ -167,6 +173,8 @@ const AdminEvents = () => {
         formData.append('description', data.description);
         formData.append('date', data.date);
         formData.append('time', data.time);
+        formData.append('endDate', data.endDate);
+        formData.append('endTime', data.endTime);
         formData.append('entranceType', data.entranceType);
 
         if (data.entrancePrice !== null && data.entrancePrice !== undefined && data.entrancePrice !== '') {

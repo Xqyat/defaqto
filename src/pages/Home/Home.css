@@ -31,11 +31,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .events-elems img {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     height: auto;
 }

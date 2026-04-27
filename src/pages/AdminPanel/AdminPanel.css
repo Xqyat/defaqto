@@ -1,0 +1,88 @@
+.admin-dashboard {
+    background: #ffffff;
+    color: #2B2B2B;
+  }
+  
+  .admin-dashboard__header {
+    margin-bottom: 2rem;
+  }
+  
+  .admin-dashboard__title {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+    color: #2B2B2B;
+  }
+  
+  .admin-dashboard__subtitle {
+    color: #2B2B2B;
+  }
+  
+  .admin-dashboard__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .admin-stat-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: #F6F6F6;
+    border: 1px solid #2B2B2B;
+  }
+  
+  .admin-stat-card__label {
+    font-size: 0.95rem;
+    color: #2B2B2B;
+  }
+  
+  .admin-stat-card__value {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: #A33333;
+  }
+  
+  .admin-stat-card__text {
+    margin: 0;
+    color: #2B2B2B;
+  }
+  
+  .admin-dashboard__section-title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+  }
+  
+  .admin-dashboard__links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .admin-dashboard__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    border-radius: 100px;
+    text-decoration: none;
+    background: #A33333;
+    color: #ffffff;
+    transition: 0.2s ease;
+  }
+  
+  .admin-dashboard__link:hover {
+    background: #8d2b2b;
+  }
+  
+  .admin-dashboard__link:active {
+    background: #E3C564;
+    color: #2B2B2B;
+  }
+  
+  @media (max-width: 900px) {
+    .admin-dashboard__stats {
+      grid-template-columns: 1fr;
+    }
+  }

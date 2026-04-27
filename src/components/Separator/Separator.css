@@ -1,0 +1,8 @@
+.separator {
+    width: 100%;
+}
+.separator img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}

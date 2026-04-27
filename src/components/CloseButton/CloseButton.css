@@ -5,7 +5,11 @@
     border-radius: 50%;
     padding: 0.5rem;
     cursor: pointer;
-    font-size: 80px;
     transition: 0.3s;
     z-index: 1005;
+}
+
+.close_button svg {
+    width: clamp(35px, 2vw, 75px);
+    height: auto;
 }

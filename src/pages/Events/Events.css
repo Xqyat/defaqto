@@ -1,33 +1,30 @@
 .events {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 4vh;
+    padding: 20px;
+    width: 100%;
 }
 
-main .events-cardlist {
+.events-cardlist {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-content: center; 
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    justify-items: center;
 }
 
-.event_card:nth-child(odd) { 
-    justify-self: end;        
+.events-controls {
+    margin-top: 2rem;
 }
 
-.event_card:nth-child(even) { 
-    justify-self: start;      
+.events-loader, .events-empty {
+    font-size: 1.2rem;
+    color: #666;
 }
 
-@media (max-width: 1024px) {
-    main .events-cardlist {
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-    }
-    .event_card:nth-child(odd) { 
-        justify-self: unset;        
-    }
-    
-    .event_card:nth-child(even) { 
-        justify-self: unset;      
+@media (max-width: 768px) {
+    .events-cardlist {
+        grid-template-columns: 1fr;
     }
 }

@@ -16,16 +16,16 @@ function EventCard ({ img, name, description, date, time, entranceType,
       : 'Бесплатный';
     return(
         <>
-            <div className="event_card" onClick={onClick} role="button" tabIndex={0}>
-                <div className="event_card-img">
+            <div className="event__card" onClick={onClick} role="button" tabIndex={0}>
+                <div className="event__card-img">
                     <img src={`http://localhost:3001${img}`} alt={name} />
                 </div>
-                <div className="event_card-info">
-                    <h3 className="event_card-info-name">{name}</h3>
-                    <p className="event_card-info-description">{description}</p>
-                    <p className="event_card-info-date">Дата: {formattedDate}</p>
-                    <p className="event_card-info-time">Время: {time}</p>
-                    <p className="event_card-info-entarance">Вход: {entranceText}</p>
+                <div className="event__card-info">
+                    <h3 className="event__card-info-name">{name}</h3>
+                    <p className="event__card-info-description--desktop">{description}</p>
+                    <p className="event__card-info-date">Дата: {formattedDate}</p>
+                    <p className="event__card-info-time">Время: {time}</p>
+                    <p className="event__card-info-entarance">Вход: {entranceText}</p>
                 </div>
             </div>
         </>

@@ -1,68 +1,148 @@
+/* Контейнер модалки */
 .adminmenu_modal-content {
-    padding: 30px;
-    max-width: 400px;
-    width: 90%;
-    background: white;
-    border-radius: 10px;
-  }
-  
-  .adminmenu_modal-title {
-    margin-bottom: 20px;
-  }
-  
-  .adminmenu_modal-label {
-    display: block;
-    margin-bottom: 15px;
-  }
-  
-  .adminmenu_modal-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-  }
-  
-  .adminmenu_modal-weight-row {
-    display: flex;
-    gap: 10px;
-    margin-top: 5px;
-  }
-  
-  .adminmenu_modal-weight-input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .adminmenu_modal-select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    min-width: 60px;
-  }
-  
-  .adminmenu_modal-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-  }
-  
-  .adminmenu_modal-submit {
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .adminmenu_modal-submit--active {
-    background: #27ae60;
-    cursor: pointer;
-  }
-  
-  .adminmenu_modal-submit--disabled {
-    background: #bdc3c7;
-    cursor: not-allowed;
-  }
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  background: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Заголовок */
+.adminmenu_modal-title {
+  margin: 0;
+  font-family: "Artistic", serif;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #2b2b2b;
+}
+
+/* Лейблы */
+.adminmenu_modal-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #2b2b2b;
+}
+
+/* Текстовые и числовые поля */
+.adminmenu_modal-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #2b2b2b;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #2b2b2b;
+  font-size: 15px;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.adminmenu_modal-input:focus {
+  border-color: #a33333;
+}
+
+/* Селекты */
+.adminmenu_modal-select {
+  padding: 10px 14px;
+  border: 1px solid #2b2b2b;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #2b2b2b;
+  font-size: 15px;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.2s ease;
+  min-width: 60px;
+}
+
+.adminmenu_modal-select:focus {
+  border-color: #a33333;
+}
+
+/* Ряд вес + единица */
+.adminmenu_modal-weight-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.adminmenu_modal-weight-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #2b2b2b;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #2b2b2b;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.adminmenu_modal-weight-input:focus {
+  border-color: #a33333;
+}
+
+/* Файловый инпут */
+.adminmenu_modal-file {
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed #2b2b2b;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #2b2b2b;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Подсказка о расписании */
+.adminmenu_modal-date_hint {
+  font-size: 13px;
+  color: #6a6a6a;
+  margin-top: 2px;
+}
+
+/* Блок с кнопками действий */
+.adminmenu_modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* Кнопка "Сохранить" */
+.adminmenu_modal-submit {
+  padding: 10px 20px;
+  border: 1px solid #2b2b2b;
+  border-radius: 14px;
+  background: #e3c564;
+  color: #2b2b2b;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.adminmenu_modal-submit--active {
+  background: #e3c564;
+  border-color: #e3c564;
+}
+
+.adminmenu_modal-submit--active:hover {
+  background: #a33333;
+  border-color: #a33333;
+  color: #ffffff;
+}
+
+.adminmenu_modal-submit--disabled {
+  background: #f6f6f6;
+  border-color: #d9d9d9;
+  color: #8c8c8c;
+  cursor: not-allowed;
+}

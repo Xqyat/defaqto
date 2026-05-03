@@ -28,14 +28,3 @@
 .show-more-container {
     align-self: center;
 }
-
-@media (max-width: 768px) {
-    .menu-elem-columns {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .menu-column {
-        min-width: 100%;
-    }
-}

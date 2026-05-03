@@ -1,0 +1,81 @@
+.privacy-policy {
+    padding: clamp(2rem, 4vh, 4rem) clamp(10vw, 5vw, 30vw);
+    max-width: 960px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #2B2B2B;
+  }
+  
+  .policy-title {
+    font-family: 'Artistic', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #2B2B2B;
+  }
+  
+  .section-general {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .section-general section {
+    scroll-margin-top: 1rem;
+  }
+  
+  .section-number {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #A33333;
+    font-family: 'Compact', sans-serif;
+  }
+  
+  .operator {
+    background: #F6F6F6;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-style: italic;
+  }
+  
+  .definitions-list,
+  .purposes-list {
+    margin: 0.5rem 0 0 1.5rem;
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .definitions-list li,
+  .purposes-list li {
+    line-height: 1.6;
+  }
+  
+  .privacy-policy a {
+    color: #A33333;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+  
+  .privacy-policy a:hover {
+    color: #E3C564;
+  }
+  
+  @media (max-width: 640px) {
+    .privacy-policy {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  
+    .policy-title {
+      font-size: 1.8rem;
+    }
+  
+    .section-number {
+      font-size: 1.2rem;
+    }
+  }

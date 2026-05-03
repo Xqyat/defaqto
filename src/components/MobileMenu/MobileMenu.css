@@ -3,68 +3,64 @@ body.no-scroll {
 }
 
 .menu-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 999; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 999; 
 }
 
 .burger-menu { 
-    display: none; 
-    background-color: #fafafa;
+  display: none; 
+  cursor: pointer;
 }
 
-.burger-menu svg path {
-    transition: fill 0.3s;
-}
-
-.burger-menu:active svg path {
-    fill: #E3C564;
+.burger-menu svg {    
+    height: auto;
+    width: clamp(50px, 5vw, 100px); 
 }
 
 .mobile-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: fit-content;           
-    max-width: 390px;
-    min-width: 280px;
-    height: 100vh;
-    background: #ffffff;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    padding: 3rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(80vw, 300px);
+  height: 100vh;
+  background: #ffffff;
+  z-index: 1000;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  padding: 2rem;
 }
 
-.mobile-nav-closed { 
-    transform: translateX(100%); 
+.mobile-nav--closed { transform: translateX(100%); }
+.mobile-nav--open { transform: translateX(0); }
+
+.mobile-nav__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
 }
 
-.mobile-nav-open { 
-    transform: translateX(0);   
+.mobile-nav__logo {
+  margin-bottom: 2rem;
 }
 
-.mobile-nav-closebtn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+.mobile-nav__logo img {
+  max-width: 180px;
+  height: auto;
 }
 
-.mobile-nav ul {
-    flex-direction: column;
-    padding: 2rem 0;
-    margin: 0;
+.mobile-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: "Compact", sans-serif;
+  font-size: 24px;
 }
 
 @media (max-width: 1024px) {
-    .burger-menu { display: block; }
-    .burger-menu svg {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
+  .burger-menu { display: block; }
 }

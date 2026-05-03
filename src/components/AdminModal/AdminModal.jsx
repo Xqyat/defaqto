@@ -288,11 +288,12 @@ const AdminModal = ({
               <input
                   type="file"
                   accept="image/*"
+                  className="adminmenu_modal-file"
                   onChange={(e) => {
                     const file = e.target.files?.[0] || null;
                     setImageFile(file);
                   }}
-              />
+                />
             </label>
 
             <label className="adminmenu_modal-label">
@@ -323,7 +324,7 @@ const AdminModal = ({
                 min={today}
                 className="adminmenu_modal-input"
               />
-              <span className="admin_modal-date_hint">
+              <span className="adminmenu_modal-date_hint">
                 Начало: {getEventScheduleLabel(formData.date)}
               </span>
             </label>

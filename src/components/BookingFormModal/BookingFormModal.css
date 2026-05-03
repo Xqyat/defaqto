@@ -22,7 +22,10 @@
   }
 }
 
-.booking_form *:not(.booking_form-footer-button):not(.booking_form-header-title ) {
+.booking_form-input_list,
+.booking_form-input_list-elem input,
+.booking_form-footer-info,
+.booking_form-checkbox-info {
   width: 100%;
   font-size: clamp(1rem, 1.1vw, 2rem);
 }
@@ -59,10 +62,6 @@
 .booking_form-checkbox {
   display: flex;
   gap: 1rem;
-}
-
-.booking_form-checkbox input {
-  width: auto !important;
 }
 
 .booking_form-date_hint {

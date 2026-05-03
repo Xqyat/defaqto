@@ -5,7 +5,7 @@
     padding-bottom: clamp(3rem, 4vh, 6rem);
 }
 
-.menu-topbar > button {
+.menu-topbar__button {
     padding: 2rem;
     font-family: 'Compact';
     font-size: 32px;
@@ -13,17 +13,31 @@
     transition: 0.3s;
 }
 
-.menu-topbar > button:hover {
+.menu-topbar__button:hover {
     color: #A33333;
 }
 
-.menu-topbar .active {
+.menu-topbar__button.active {
     font-size: 36px;
+    color: #E3C564;
+  }
+  
+.menu-topbar__button.active:hover {
     color: #E3C564;
 }
 
-.menu-topbar .active:hover {
-    color: #E3C564; 
+.menu-navbar__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.menu-navbar__item {
+    line-height: 1;
 }
 
 .menu-tab {
@@ -43,13 +57,6 @@
 
 .menu-tab.active:hover {
     color: #E3C564; 
-}
-
-.menu-navbar > ul {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 2rem;
-    justify-content: center;
 }
 
 @media (max-width: 665px) {

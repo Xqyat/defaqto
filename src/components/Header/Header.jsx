@@ -21,18 +21,12 @@ function Header(){
       };
     return(
         <>
-            <header>
-                <div className="header-infobar">
-                    {/* <div className="header-infobar-address_and_time">
-                        <p className="header-infobar-address">Большая Лубянка, 30/2</p>
-                        <p className="header-infobar-time">Сегодня до 06:00</p>
-                    </div>
-                    <p className="header-infobar-phone">ЗАКАЗЫ: +7 495 624 44 97</p> */}
-                </div>
-                <div className="header-main">
-                    <div className="logo">
+            <header className="site-header">
+                <div className="site-header__bar"></div>
+                <div className="site-header__main">
+                    <div className="site-header__logo">
                         <NavLink to='/'>
-                        <img src={LogoBlack} alt="DeFAQto" />
+                            <img src={LogoBlack} alt="DeFAQto" />
                         </NavLink>
                     </div>
                     <nav className="main-navbar">

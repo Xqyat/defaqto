@@ -3,7 +3,7 @@ body.no-scroll {
 }
 
 .modal_wrapper {
-    position: absolute;    
+    position: fixed;    
     inset: 0; 
 }
 

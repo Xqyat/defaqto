@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import MenuSection from '../../components/MenuSection/MenuSection.jsx';
 import './Menu.css';
+import { Helmet } from 'react-helmet-async';
 
 function Menu(){
     const [activeGroup, setActiveGroup] = useState('food');
@@ -41,52 +42,59 @@ function Menu(){
     if (loading) return <div>Загрузка меню...</div>;
     return(
         <>
-        <main className="menu">
-            <div className='menu-topbar'>
-                <button
-                    className={activeGroup === 'food' ? 'active' : ''}
-                    onClick={() => {
+            <Helmet>
+                <title>Меню | DeFAQto</title>
+                <meta name="description" content="Меню бара DeFAQto — блюда и напитки, авторская кухня, коктейли. Забронируйте стол, чтобы попробовать всё." />
+                <meta name="keywords" content="меню, DeFAQto, бар, еда, напитки, коктейли, бронирование" />
+                <meta property="og:title" content="Меню DeFAQto" />
+                <meta property="og:description" content="Авторские блюда и напитки в баре DeFAQto. Посмотрите наше меню и забронируйте столик." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://defaqto.ru/menu" />
+                <meta property="og:image" content="https://defaqto.ru/og-image-menu.jpg" />
+            </Helmet>
+            <main className="menu">
+                <div className="menu-topbar">
+                    <button
+                        className={`menu-topbar__button ${activeGroup === 'food' ? 'active' : ''}`}
+                        onClick={() => {
                         setActiveGroup('food');
                         const firstFoodKey = Object.keys(menuData.food || {})[0];
                         setActiveSectionKey(firstFoodKey || '');
-                    }}
+                        }}
                     >
-                    Еда
-                </button>
-
-                <button
-                    className={activeGroup === 'drinks' ? 'active' : ''}
-                    onClick={() => {
+                        Еда
+                    </button>
+                    <button
+                        className={`menu-topbar__button ${activeGroup === 'drinks' ? 'active' : ''}`}
+                        onClick={() => {
                         setActiveGroup('drinks');
                         const firstDrinkKey = Object.keys(menuData.drinks || {})[0];
                         setActiveSectionKey(firstDrinkKey || '');
-                    }}
+                        }}
                     >
-                    Напитки
-                </button>
-            </div>
-            <nav className='menu-navbar'>
-                <ul>
-                    {currentNavSections.map((section) => (
-                        <li key={section.key}>
+                        Напитки
+                    </button>
+                </div>
+                <nav className="menu-navbar">
+                    <ul className="menu-navbar__list">
+                        {currentNavSections.map((section) => (
+                        <li key={section.key} className="menu-navbar__item">
                             <button
-                                className={
-                                section.key === activeSectionKey ? 'menu-tab active' : 'menu-tab'
-                                }
-                                onClick={() => setActiveSectionKey(section.key)}
+                            className={`menu-tab ${section.key === activeSectionKey ? 'active' : ''}`}
+                            onClick={() => setActiveSectionKey(section.key)}
                             >
-                                {section.name}
+                            {section.name}
                             </button>
                         </li>
-                    ))}
-                </ul>
-            </nav>
-            <MenuSection 
-                title={currentSectionContent.title} 
-                items={currentSectionContent.items}
-                maxInitial={8}
-/>
-        </main>
+                        ))}
+                    </ul>
+                </nav>
+                <MenuSection 
+                    title={currentSectionContent.title} 
+                    items={currentSectionContent.items}
+                    maxInitial={8}
+                />
+            </main>
         </>
     )
 }

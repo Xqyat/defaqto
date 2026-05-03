@@ -48,7 +48,7 @@ const AdminMenu = () => {
 
         const token = localStorage.getItem("adminToken");
         const response = await fetch(
-          `http://localhost:3001/api/admin/categories?group=${activeGroup}`,
+          `/api/admin/categories?group=${activeGroup}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -91,7 +91,7 @@ const AdminMenu = () => {
         setError(null);
         const token = localStorage.getItem("adminToken");
         const response = await fetch(
-          `http://localhost:3001/api/menu?categoryId=${activeCategoryId}`,
+          `/api/menu?categoryId=${activeCategoryId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -135,7 +135,7 @@ const AdminMenu = () => {
         categoryId: activeCategoryId,
       };
 
-      const response = await fetch("http://localhost:3001/api/admin/menu", {
+      const response = await fetch("/api/admin/menu", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -185,7 +185,7 @@ const AdminMenu = () => {
       const itemId = data._id || data.id;
 
       const response = await fetch(
-        `http://localhost:3001/api/admin/menu/${itemId}`,
+        `/api/admin/menu/${itemId}`,
         {
           method: "PUT",
           headers: {
@@ -230,7 +230,7 @@ const AdminMenu = () => {
 
       const responses = await Promise.all(
         selectedItems.map((id) =>
-          fetch(`http://localhost:3001/api/admin/menu/${id}`, {
+          fetch(`/api/admin/menu/${id}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
           })
@@ -270,7 +270,7 @@ const AdminMenu = () => {
       const token = localStorage.getItem("adminToken");
       const payload = { name: data.name, group: activeGroup };
 
-      const response = await fetch("http://localhost:3001/api/admin/categories", {
+      const response = await fetch("/api/admin/categories", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -300,7 +300,7 @@ const AdminMenu = () => {
       const categoryId = data._id || data.id;
 
       const response = await fetch(
-        `http://localhost:3001/api/admin/categories/${categoryId}`,
+        `/api/admin/categories/${categoryId}`,
         {
           method: "PUT",
           headers: {
@@ -341,7 +341,7 @@ const AdminMenu = () => {
     try {
       const token = localStorage.getItem("adminToken");
       const response = await fetch(
-        `http://localhost:3001/api/admin/categories/${activeCategoryId}`,
+        `/api/admin/categories/${activeCategoryId}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

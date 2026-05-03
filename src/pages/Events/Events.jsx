@@ -13,7 +13,7 @@ function Events() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/events')
+        fetch('/api/events')
             .then(r => r.json())
             .then(setEvents)
             .catch(console.error)

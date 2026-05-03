@@ -35,7 +35,7 @@ const AdminEvents = () => {
         setLoading(true);
         const token = localStorage.getItem("adminToken");
 
-        const response = await fetch("http://localhost:3001/api/events", {
+        const response = await fetch("/api/events", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -103,7 +103,7 @@ const AdminEvents = () => {
         formData.append("img", data.img);
       }
 
-      const response = await fetch("http://localhost:3001/api/admin/events", {
+      const response = await fetch("/api/admin/events", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -186,7 +186,7 @@ const AdminEvents = () => {
         formData.append("img", data.img);
       }
 
-      const response = await fetch(`http://localhost:3001/api/admin/events/${itemId}`, {
+      const response = await fetch(`/api/admin/events/${itemId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -232,7 +232,7 @@ const AdminEvents = () => {
       const token = localStorage.getItem("adminToken");
 
       const promises = selectedItems.map((id) =>
-        fetch(`http://localhost:3001/api/admin/events/${id}`, {
+        fetch(`/api/admin/events/${id}`, {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
         })
@@ -360,7 +360,7 @@ const AdminEvents = () => {
 
               <div className="adminevents_item-content">
                 <div className="adminevents_item-content-img">
-                  <img src={`http://localhost:3001${event.img}`} alt={event.name} /> 
+                  <img src={`${event.img}`} alt={event.name} /> 
                 </div>
                 <h3 className="adminevents_item-title">{event.name}</h3>
                 <p className="adminevents_item-description">{event.description}</p>

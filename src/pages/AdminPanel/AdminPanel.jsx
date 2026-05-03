@@ -19,7 +19,7 @@ const AdminPanel = () => {
 
         const token = localStorage.getItem("adminToken");
 
-        const response = await fetch("http://localhost:3001/api/admin/dashboard", {
+        const response = await fetch("/api/admin/dashboard", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

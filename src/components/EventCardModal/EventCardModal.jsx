@@ -24,7 +24,7 @@ const EventCardModal = ({ isOpen, onClose, event }) => {
         aria-describedby="event-modal-description"
       >
         <div className="event_modal_card-img">
-          <img src={`http://localhost:3001${event.img}`} alt={event.name} />
+          <img src={`${event.img}`} alt={event.name} />
         </div>
         <div className="event_modal_card-info">
           <h3 id="event-modal-title" className="event_modal_card-info-name">

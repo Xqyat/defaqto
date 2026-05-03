@@ -18,7 +18,7 @@ function EventCard ({ img, name, description, date, time, entranceType,
         <>
             <div className="event_card" onClick={onClick} role="button" tabIndex={0}>
                 <div className="event_card-img">
-                    <img src={`http://localhost:3001${img}`} alt={name} />
+                    <img src={`${img}`} alt={name} />
                 </div>
                 <div className="event_card-info">
                     <h3 className="event_card-info-name">{name}</h3>

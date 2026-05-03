@@ -15,7 +15,7 @@ function Home() {
   useEffect(() => {
     async function fetchEvents() {
       try {
-        const response = await fetch("http://localhost:3001/api/events");
+        const response = await fetch("/api/events");
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);

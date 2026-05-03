@@ -10,7 +10,7 @@ function Menu(){
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/menu')
+        fetch('/api/menu')
           .then(r => r.json())
           .then(data => {
             setMenuData(data || { food: {}, drinks: {} });

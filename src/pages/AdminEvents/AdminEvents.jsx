@@ -116,7 +116,7 @@ const AdminEvents = () => {
         alert("Ошибка: " + (err.error || response.status));
         return;
       }
-
+      const created = await response.json();
       setEvents((prev) => [...prev, created]);
       setSelectedItems([]);
       setIsAddModalOpen(false);

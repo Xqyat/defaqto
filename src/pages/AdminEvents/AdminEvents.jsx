@@ -117,6 +117,8 @@ const AdminEvents = () => {
         return;
       }
 
+      setEvents((prev) => [...prev, created]);
+      setSelectedItems([]);
       setIsAddModalOpen(false);
       setNewItem({
         _id: "",
@@ -131,8 +133,6 @@ const AdminEvents = () => {
         entranceType: "free",
         entrancePrice: "",
       });
-
-      window.location.reload();
     } catch (e) {
       console.error("Ошибка добавления:", e);
       alert("Ошибка сети");
@@ -207,11 +207,9 @@ const AdminEvents = () => {
           (event._id || event.id) === itemId ? updated : event
         )
       );
-
+      setSelectedItems([]);
       setIsEditModalOpen(false);
       setEditingItem(null);
-
-      window.location.reload();
     } catch (e) {
       console.error("Ошибка редактирования:", e);
       alert("Ошибка сети");
@@ -246,9 +244,11 @@ const AdminEvents = () => {
         return;
       }
 
-      setSelectedItems([]);
+      setEvents((prev) =>
+        prev.filter((event) => !selectedItems.includes(event._id || event.id))
+      );
 
-      setTimeout(() => window.location.reload(), 500);
+      setSelectedItems([]);
     } catch (err) {
       console.error("Ошибка удаления:", err);
       alert("Ошибка сети");

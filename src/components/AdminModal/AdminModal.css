@@ -93,10 +93,33 @@
   cursor: pointer;
 }
 
-.adminmenu_modal-date_hint {
-  font-size: 13px;
+.adminmenu_modal-row {
+  display: flex;
+  gap: 12px;
+}
+
+.adminmenu_modal-label--half {
+  flex: 1;
+}
+
+.adminmenu_modal-textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.adminmenu_modal-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
   color: #6a6a6a;
-  margin-top: 2px;
+  padding: 4px 0;
+}
+
+.adminmenu_modal-hint {
+  background: #f5f5f5;
+  padding: 4px 8px;
+  border-radius: 12px;
 }
 
 .adminmenu_modal-actions {

@@ -286,14 +286,14 @@ const AdminModal = ({
             <label className="adminmenu_modal-label">
               Изображение:
               <input
-                  type="file"
-                  accept="image/*"
-                  className="adminmenu_modal-file"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0] || null;
-                    setImageFile(file);
-                  }}
-                />
+                type="file"
+                accept="image/*"
+                className="adminmenu_modal-file"
+                onChange={(e) => {
+                  const file = e.target.files?.[0] || null;
+                  setImageFile(file);
+                }}
+              />
             </label>
 
             <label className="adminmenu_modal-label">
@@ -309,93 +309,101 @@ const AdminModal = ({
             <label className="adminmenu_modal-label">
               Описание:
               <textarea
+                rows={2}
                 value={formData.description || ''}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="adminmenu_modal-input"
+                className="adminmenu_modal-input adminmenu_modal-textarea"
               />
             </label>
-
-            <label className="adminmenu_modal-label">
-              Дата:
-              <input
-                type="date"
-                value={formData.date || ''}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                min={today}
-                className="adminmenu_modal-input"
-              />
-              <span className="adminmenu_modal-date_hint">
-                Начало: {getEventScheduleLabel(formData.date)}
-              </span>
-            </label>
-
-            <label className="adminmenu_modal-label">
-              Время:
-              <input
-                type="time"
-                value={formData.time || ''}
-                onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                className="adminmenu_modal-input"
-              />
-            </label>
-
-            <label className="adminmenu_modal-label">
-              Дата окончания:
-              <input
-                type="date"
-                value={formData.endDate || ''}
-                min={formData.date || today}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, endDate: e.target.value }))
-                }
-                className="adminmenu_modal-input"
-              />
-              <span className="admin_modal-date_hint">
-                Окончание: {getEventScheduleLabel(formData.endDate)}
-              </span>
-            </label>
-
-            <label className="adminmenu_modal-label">
-              Время окончания:
-              <input
-                type="time"
-                value={formData.endTime  || ''}
-                onChange={(e) => setFormData({ ...formData, endTime : e.target.value })}
-                className="adminmenu_modal-input"
-              />
-            </label>
-
-            <label className="adminmenu_modal-label">
-              Тип входа:
-              <select
-                value={formData.entranceType || 'free'}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    entranceType: e.target.value,
-                    entrancePrice: e.target.value === 'free' ? '' : formData.entrancePrice,
-                  })
-                }
-                className="adminmenu_modal-select"
-              >
-                <option value="free">Бесплатный</option>
-                <option value="paid">Платный</option>
-              </select>
-            </label>
-
-            {formData.entranceType === 'paid' && (
-              <label className="adminmenu_modal-label">
-                Цена входа (₽):
+            
+            <div className="adminmenu_modal-row">
+              <label className="adminmenu_modal-label adminmenu_modal-label--half">
+                Дата начала:
                 <input
-                  type="number"
-                  min="0"
-                  value={formData.entrancePrice || ''}
-                  onChange={(e) =>
-                    setFormData({ ...formData, entrancePrice: e.target.value })
-                  }
+                  type="date"
+                  value={formData.date || ''}
+                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                  min={today}
                   className="adminmenu_modal-input"
                 />
               </label>
+
+              <label className="adminmenu_modal-label adminmenu_modal-label--half">
+                Время:
+                <input
+                  type="time"
+                  value={formData.time || ''}
+                  onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                  className="adminmenu_modal-input"
+                />
+              </label>
+            </div>
+            
+            <div className="adminmenu_modal-row">
+              <label className="adminmenu_modal-label adminmenu_modal-label--half">
+                Дата окончания:
+                <input
+                  type="date"
+                  value={formData.endDate || ''}
+                  min={formData.date || today}
+                  onChange={(e) => setFormData((prev) => ({ ...prev, endDate: e.target.value }))}
+                  className="adminmenu_modal-input"
+                />
+              </label>
+
+              <label className="adminmenu_modal-label adminmenu_modal-label--half">
+                Время окончания:
+                <input
+                  type="time"
+                  value={formData.endTime || ''}
+                  onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
+                  className="adminmenu_modal-input"
+                />
+              </label>
+            </div>
+            
+            <div className="adminmenu_modal-row">
+              <label className="adminmenu_modal-label adminmenu_modal-label--half">
+                Тип входа:
+                <select
+                  value={formData.entranceType || 'free'}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      entranceType: e.target.value,
+                      entrancePrice: e.target.value === 'free' ? '' : formData.entrancePrice,
+                    })
+                  }
+                  className="adminmenu_modal-select"
+                >
+                  <option value="free">Бесплатный</option>
+                  <option value="paid">Платный</option>
+                </select>
+              </label>
+
+              {formData.entranceType === 'paid' && (
+                <label className="adminmenu_modal-label adminmenu_modal-label--half">
+                  Цена (₽):
+                  <input
+                    type="number"
+                    min="0"
+                    value={formData.entrancePrice || ''}
+                    onChange={(e) => setFormData({ ...formData, entrancePrice: e.target.value })}
+                    className="adminmenu_modal-input"
+                  />
+                </label>
+              )}
+            </div>
+            
+            {(formData.date || formData.endDate) && (
+              <div className="adminmenu_modal-hints">
+                {formData.date && (
+                  <span className="adminmenu_modal-hint">Начало: {getEventScheduleLabel(formData.date)}</span>
+                )}
+                {formData.endDate && (
+                  <span className="adminmenu_modal-hint">Окончание: {getEventScheduleLabel(formData.endDate)}</span>
+                )}
+              </div>
             )}
           </>
         )}

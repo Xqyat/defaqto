@@ -35,7 +35,11 @@
     overflow: hidden;
 }
 
-.event_card-info-name,
+.event_card-info-name {
+    white-space: normal;
+    overflow: visible;
+}
+
 .event_card-info-description {
     white-space: nowrap;
     overflow: hidden;

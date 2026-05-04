@@ -25,7 +25,7 @@ function EventCard ({ img, name, description, date, time, entranceType,
                     <p className="event_card-info-description--desktop">{description}</p>
                     <p className="event_card-info-date">Дата: {formattedDate}</p>
                     <p className="event_card-info-time">Время: {time}</p>
-                    <p className="event_card-info-entarance">Вход: {entranceText}</p>
+                    <p className="event_card-info-entrance">Вход: {entranceText}</p>
                 </div>
             </div>
         </>

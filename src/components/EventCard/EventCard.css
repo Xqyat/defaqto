@@ -46,15 +46,23 @@
     text-overflow: ellipsis;
 }
 
+.event_card--weekend {
+    border: 3px #A33333 solid;
+}
+
+.event_card--weekend:hover {
+    box-shadow: 0px 0px 5px 0px #A33333;
+}
+
 @media (max-width: 460px) {
     .event_card {
         flex-direction: column;
-        align-items: center;
     }
-    .event_card-info-description--desktop {
+    .desktop {
         display: none;
     }
     .event_card-img {
+        align-self: center;
         height: 175px;
     }
     .event_card-img img {

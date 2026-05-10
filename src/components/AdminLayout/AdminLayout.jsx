@@ -31,7 +31,7 @@ const AdminLayout = () => {
                   to="/admin"
                   className={isActive("/admin") ? "admin-sidebar__link active" : "admin-sidebar__link"}
                 >
-                  Dashboard
+                  Дашборд
                 </Link>
               </li>
               <li>

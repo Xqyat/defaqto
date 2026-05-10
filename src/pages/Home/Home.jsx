@@ -122,6 +122,7 @@ function Home() {
           property="og:description"
           content="Живой джаз, соул, рок-н-ролл, вечерние события и атмосфера бара-клуба DeFAQto."
         />
+        <meta name="google-site-verification" content="ScY_avpdeEbKw5z45k5gLACB4vxnVHUgdwuLbhrTLVA" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://defaqto.ru/" />
         <meta property="og:image" content="https://defaqto.ru/og-image.jpg" />

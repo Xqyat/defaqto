@@ -59,21 +59,18 @@
   }
   
   .admin-sidebar__link:hover {
-    background: #E3C564;
-    color: #2B2B2B;
-    border-color: #E3C564;
+    background: #A33333;
+    color: #FFFFFF;
   }
   
   .admin-sidebar__link.active {
-    background: #A33333;
-    color: #FFFFFF;
-    border-color: #A33333;
+    background: #E3C564;
+    color: #2B2B2B;
   }
   
   .admin-sidebar__link:active {
-    background: #8d2b2b;
+    background: #A33333;
     color: #FFFFFF;
-    border-color: #8d2b2b;
   }
   
   .admin-sidebar__bottom {

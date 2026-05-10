@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { API_BASE_URL } from '../../config';
 import AdminModal from "../../components/AdminModal/AdminModal";
 import "./AdminEvents.css";
-import Button from "../../components/Button/Button";
 
 const AdminEvents = () => {
   const [events, setEvents] = useState([]);
@@ -275,8 +274,6 @@ const AdminEvents = () => {
             Добавляйте, редактируйте и удаляйте события афиши
           </p>
         </div>
-
-        <div className="adminevents_topbar-crud">
           <label className="adminevents_select-all">
             <input
               type="checkbox"
@@ -285,6 +282,8 @@ const AdminEvents = () => {
             />
             <span>Выделить все ({events.length})</span>
           </label>
+
+        <div className="adminevents_topbar-crud">
 
           <button
             type="button"
@@ -384,12 +383,12 @@ const AdminEvents = () => {
                         ? event.description
                         : event.description.slice(0, 100) + '...'}
                     </p>
-                    <Button
+                    <button
                       className="adminevents_item-description-toggle"
                       onClick={() => toggleDescription(itemId)}
                     >
                       {expandedDescriptions[itemId] ? 'Скрыть' : 'Читать далее'}
-                    </Button>
+                    </button>
                   </div>
                 ) : (
                   <p className="adminevents_item-description">{event.description}</p>

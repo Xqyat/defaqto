@@ -44,7 +44,6 @@
 
 .main-navbar a.active {
     color: #E3C564; 
-    font-weight: bold;
     border-bottom: 2px solid #E3C564;
   }
 

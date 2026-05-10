@@ -22,7 +22,7 @@
 .adminevents_topbar {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
   padding: 24px;
   border: 1px solid #2B2B2B;
   border-radius: 24px;
@@ -58,13 +58,9 @@
 
 .adminevents_select-all {
   display: inline-flex;
-  align-items: center;
   gap: 8px;
-  min-height: 44px;
-  padding: 10px 14px;
-  border: 1px solid #2B2B2B;
+  padding: 10px 0px;
   border-radius: 14px;
-  background: #FFFFFF;
   color: #2B2B2B;
   font-size: 15px;
 }
@@ -89,13 +85,12 @@
 }
 
 .adminevents_action-button:hover {
-  background: #E3C564;
-  border-color: #E3C564;
+  background: #A33333;
+  color: #FFFFFF;
 }
 
 .adminevents_action-button:active {
-  background: #A33333;
-  border-color: #A33333;
+  background: #E3C564;
   color: #FFFFFF;
 }
 
@@ -206,11 +201,10 @@
   border: none;
   color: #A33333;
   font-size: 14px;
-  font-weight: 600;
   cursor: pointer;
   padding: 0;
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 4px;
   transition: color 0.2s;
 }
 
@@ -219,10 +213,12 @@
 }
 
 .adminevents_item-meta {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   padding-top: 4px;
   border-top: 1px solid #2B2B2B;
+  margin-top: auto;
 }
 
 .adminevents_item-meta p {
@@ -265,7 +261,6 @@
     gap: 10px;
   }
 
-  .adminevents_select-all,
   .adminevents_action-button {
     width: 100%;
     justify-content: center;

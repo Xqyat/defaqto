@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { IMaskInput } from 'react-imask';
 import Button from '../Button/Button.jsx';
 import ModalWrapper from '../ModalWrapper/ModalWrapper.jsx';
+import { API_BASE_URL } from '../../config.js';
 import './BookingFormModal.css';
 
 const BookingFormModal = ({ isOpen, onClose }) => {
@@ -101,7 +102,7 @@ const BookingFormModal = ({ isOpen, onClose }) => {
         try {
             setLoading(true);
 
-            const response = await fetch('/api/booking', {
+            const response = await fetch(`${API_BASE_URL}/api/booking`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

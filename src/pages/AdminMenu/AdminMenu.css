@@ -89,30 +89,18 @@
 }
 
 .adminmenu__button:hover {
-  background: #e3c564;
-  border-color: #e3c564;
+  background: #a33333;
+  color: #ffffff;
 }
 
 .adminmenu__button:active {
-  background: #a33333;
-  border-color: #a33333;
-  color: #ffffff;
+  background: #e3c564;
+  color: #2B2B2B;
 }
 
 .adminmenu__button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-.adminmenu__button--secondary:hover {
-  background: #e3c564;
-  border-color: #e3c564;
-}
-
-.adminmenu__button--danger:hover {
-  background: #a33333;
-  border-color: #a33333;
-  color: #ffffff;
 }
 
 .adminmenu__select {
@@ -148,13 +136,17 @@
 }
 
 .adminmenu__tab:hover {
-  background: #e3c564;
-  border-color: #e3c564;
+  background: #a33333;
+  color: #ffffff;
 }
 
 .adminmenu__tab--active {
   background: #e3c564;
-  border-color: #e3c564;
+  color: #2b2b2b;
+}
+
+.adminmenu__tab:active {
+  background: #e3c564;
   color: #2b2b2b;
 }
 
@@ -177,13 +169,16 @@
 }
 
 .adminmenu__item:hover {
-  background: #f6f6f6;
+  background: #a33333;
+  color: #ffffff; 
 }
 
 .adminmenu__item--active {
-  background: #a33333;
-  border-color: #a33333;
-  color: #ffffff;
+  background: #e3c564;
+}
+
+.adminmenu__item:active {
+  background: #e3c564;
 }
 
 .adminmenu__category-title {

@@ -46,7 +46,7 @@ function Footer() {
       </div>
 
       <p className="site-footer__copyright">
-        Copyright © 2010–2022 Дефакто
+        Copyright © 2010–2026 Дефакто
       </p>
     </footer>
   );

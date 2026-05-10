@@ -395,7 +395,7 @@ const AdminMenu = () => {
             </button>
             <button
               type="button"
-              className="adminmenu__button adminmenu__button--secondary"
+              className="adminmenu__button adminmenu__button"
               onClick={openEditCategoryModal}
               disabled={!activeCategoryId}
             >
@@ -403,7 +403,7 @@ const AdminMenu = () => {
             </button>
             <button
               type="button"
-              className="adminmenu__button adminmenu__button--danger"
+              className="adminmenu__button adminmenu__button"
               onClick={deleteCategory}
               disabled={!activeCategoryId}
             >
@@ -434,7 +434,7 @@ const AdminMenu = () => {
               </button>
               <button
                 type="button"
-                className="adminmenu__button adminmenu__button--secondary"
+                className="adminmenu__button adminmenu__button"
                 onClick={openEditModal}
                 disabled={selectedItems.length !== 1}
               >
@@ -442,7 +442,7 @@ const AdminMenu = () => {
               </button>
               <button
                 type="button"
-                className="adminmenu__button adminmenu__button--danger"
+                className="adminmenu__button adminmenu__button"
                 onClick={deleteSelected}
                 disabled={selectedItems.length === 0}
               >

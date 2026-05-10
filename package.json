@@ -12,15 +12,35 @@
     "react-dom": "^19.2.3",
     "react-helmet-async": "^3.0.0",
     "react-imask": "^7.6.1",
-    "react-router-dom": "^7.13.1",
+    "react-router": "^6.30.3",
+    "react-router-dom": "^6.30.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest --testPathPattern=tests/.*\\.test\\.js$ --testPathIgnorePatterns=performance",
+    "test:unit": "jest tests/ --testPathIgnorePatterns=performance",
+    "test:performance": "npm run lighthouse && npm run playwright",
+    "lighthouse": "lighthouse http://localhost:3000 --preset=desktop --thresholds performance=90",
+    "playwright": "playwright test tests/performance/afisha-load.spec.js"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom"
+    ],
+    "verbose": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!(axios)/)"
+      ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+      "\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/src/tests/__mocks__/fileMock.js",
+      "^react-router-dom$": "<rootDir>/node_modules/react-router-dom"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +59,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.5",
+    "@babel/preset-react": "^7.28.5",
+    "babel-jest": "^30.3.0",
+    "http-proxy-middleware": "^3.0.5",
+    "identity-obj-proxy": "^3.0.0"
   }
 }

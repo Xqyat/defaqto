@@ -1,7 +1,9 @@
 import './styles/App.css';
 import './assets/fonts/fonts.css'
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
+import AgeGate from './components/AgeGate/AgeGate';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
@@ -32,26 +34,29 @@ const MainLayout = () => (
 
 
 function App() {
-  return (
-    <Router>
-      <Routes>        
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home/>}/>
-          <Route path="/events" element={<Events/>}/>
-          <Route path="/menu" element={<Menu/>}/>
-          <Route path="/contacts" element={<Contacts/>}/>
-          <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
-        </Route>
+  return (    
+    <HelmetProvider>
+      <Router>
+        <AgeGate />
+        <Routes>        
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home/>}/>
+            <Route path="/events" element={<Events/>}/>
+            <Route path="/menu" element={<Menu/>}/>
+            <Route path="/contacts" element={<Contacts/>}/>
+            <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+          </Route>
 
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<ProtectedRoute />}>
-          <Route index element={<AdminPanel />} />
-          <Route path="menu" element={<AdminMenu />} />
-          <Route path="events" element={<AdminEvents />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<ProtectedRoute />}>
+            <Route index element={<AdminPanel />} />
+            <Route path="menu" element={<AdminMenu />} />
+            <Route path="events" element={<AdminEvents />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
 

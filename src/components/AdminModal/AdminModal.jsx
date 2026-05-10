@@ -74,7 +74,7 @@ const AdminModal = ({
   const isValid = isCategory
   ? formData.name?.trim()
   : isEvent
-  ? (imageFile || formData.img) &&
+  ? (mode === 'edit' || imageFile || formData.img) &&
     formData.name?.trim() &&
     formData.description?.trim() &&
     formData.date &&
@@ -176,7 +176,7 @@ const AdminModal = ({
       ? {
           _id: formData._id,
           id: formData.id,
-          img: formData.img || '',
+          img: imageFile ? '' : formData.img || '',
           imageFile: imageFile,
           name: formData.name.trim(),
           description: formData.description.trim(),
@@ -195,7 +195,6 @@ const AdminModal = ({
           category,
           group,
         };
-
     onSubmit(dataToSend);
     setFormData(emptyForm);
     setImageFile(null);
@@ -428,4 +427,4 @@ const AdminModal = ({
   );
 };
   
-  export default AdminModal;
+export default AdminModal;

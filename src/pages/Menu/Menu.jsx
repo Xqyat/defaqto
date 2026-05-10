@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../../config';
 import MenuSection from '../../components/MenuSection/MenuSection.jsx';
 import './Menu.css';
 import { Helmet } from 'react-helmet-async';
@@ -10,7 +11,7 @@ function Menu(){
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/api/menu')
+        fetch(`${API_BASE_URL}/api/menu`)
           .then(r => r.json())
           .then(data => {
             setMenuData(data || { food: {}, drinks: {} });
@@ -62,7 +63,7 @@ function Menu(){
                         setActiveSectionKey(firstFoodKey || '');
                         }}
                     >
-                        Еда
+                        Меню
                     </button>
                     <button
                         className={`menu-topbar__button ${activeGroup === 'drinks' ? 'active' : ''}`}
@@ -72,7 +73,7 @@ function Menu(){
                         setActiveSectionKey(firstDrinkKey || '');
                         }}
                     >
-                        Напитки
+                        Бар
                     </button>
                 </div>
                 <nav className="menu-navbar">

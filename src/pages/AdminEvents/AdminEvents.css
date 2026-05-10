@@ -11,7 +11,6 @@
   background: #F6F6F6;
   color: #2B2B2B;
   font-size: 16px;
-  line-height: 1.5;
 }
 
 .adminevents_state--error {
@@ -40,14 +39,12 @@
   margin: 0;
   font-family: "Artistic", serif;
   font-size: 40px;
-  line-height: 1.1;
   color: #2B2B2B;
 }
 
 .adminevents_subtitle {
   margin: 0;
   font-size: 16px;
-  line-height: 1.6;
   color: #2B2B2B;
 }
 
@@ -70,7 +67,6 @@
   background: #FFFFFF;
   color: #2B2B2B;
   font-size: 15px;
-  line-height: 1.4;
 }
 
 .adminevents_select-all input {
@@ -88,7 +84,6 @@
   color: #2B2B2B;
   font-size: 15px;
   font-weight: 600;
-  line-height: 1.4;
   cursor: pointer;
   transition: 0.2s ease;
 }
@@ -151,7 +146,6 @@
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  line-height: 1.4;
   color: #2B2B2B;
 }
 
@@ -188,17 +182,40 @@
 .adminevents_item-title {
   margin: 0;
   font-size: 24px;
-  line-height: 1.2;
   color: #2B2B2B;
+}
+
+
+.adminevents_item-description-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .adminevents_item-description {
   margin: 0;
   font-size: 15px;
-  line-height: 1.6;
   color: #2B2B2B;
   word-break: break-word;
   overflow-wrap: break-word;
+}
+
+.adminevents_item-description-toggle {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: #A33333;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.adminevents_item-description-toggle:hover {
+  color: #E3C564;
 }
 
 .adminevents_item-meta {
@@ -209,14 +226,16 @@
 }
 
 .adminevents_item-meta p {
-  margin: 0;
   font-size: 15px;
-  line-height: 1.5;
   color: #2B2B2B;
 }
 
 .adminevents_item-meta span {
   font-weight: 700;
+}
+
+.adminevents_item--weekend {
+  border: 3px #A33333 solid;
 }
 
 @media (max-width: 900px) {

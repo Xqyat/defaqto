@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { API_BASE_URL } from '../../config';
 import AdminModal from "../../components/AdminModal/AdminModal";
 import "../../styles/admin.css";
 import "./AdminMenu.css";
@@ -48,7 +49,7 @@ const AdminMenu = () => {
 
         const token = localStorage.getItem("adminToken");
         const response = await fetch(
-          `/api/admin/categories?group=${activeGroup}`,
+          `${API_BASE_URL}/api/admin/categories?group=${activeGroup}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -91,7 +92,7 @@ const AdminMenu = () => {
         setError(null);
         const token = localStorage.getItem("adminToken");
         const response = await fetch(
-          `/api/menu?categoryId=${activeCategoryId}`,
+          `${API_BASE_URL}/api/menu?categoryId=${activeCategoryId}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -135,7 +136,7 @@ const AdminMenu = () => {
         categoryId: activeCategoryId,
       };
 
-      const response = await fetch("/api/admin/menu", {
+      const response = await fetch(`${API_BASE_URL}/api/admin/menu`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -185,7 +186,7 @@ const AdminMenu = () => {
       const itemId = data._id || data.id;
 
       const response = await fetch(
-        `/api/admin/menu/${itemId}`,
+        `${API_BASE_URL}/api/admin/menu/${itemId}`,
         {
           method: "PUT",
           headers: {
@@ -230,7 +231,7 @@ const AdminMenu = () => {
 
       const responses = await Promise.all(
         selectedItems.map((id) =>
-          fetch(`/api/admin/menu/${id}`, {
+          fetch(`${API_BASE_URL}/api/admin/menu/${id}`, {
             method: "DELETE",
             headers: { Authorization: `Bearer ${token}` },
           })
@@ -270,7 +271,7 @@ const AdminMenu = () => {
       const token = localStorage.getItem("adminToken");
       const payload = { name: data.name, group: activeGroup };
 
-      const response = await fetch("/api/admin/categories", {
+      const response = await fetch(`${API_BASE_URL}/api/admin/categories`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -300,7 +301,7 @@ const AdminMenu = () => {
       const categoryId = data._id || data.id;
 
       const response = await fetch(
-        `/api/admin/categories/${categoryId}`,
+        `${API_BASE_URL}/api/admin/categories/${categoryId}`,
         {
           method: "PUT",
           headers: {
@@ -341,7 +342,7 @@ const AdminMenu = () => {
     try {
       const token = localStorage.getItem("adminToken");
       const response = await fetch(
-        `/api/admin/categories/${activeCategoryId}`,
+        `${API_BASE_URL}/api/admin/categories/${activeCategoryId}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
@@ -460,7 +461,7 @@ const AdminMenu = () => {
           }`}
           onClick={() => handleGroupChange("food")}
         >
-          Еда
+          Меню
         </button>
 
         <button
@@ -470,17 +471,17 @@ const AdminMenu = () => {
           }`}
           onClick={() => handleGroupChange("drinks")}
         >
-          Напитки
+          Бар
         </button>
       </div>
 
-      <div className="adminmenu__chips">
+      <div className="adminmenu__items">
         {categories.map((category) => (
           <button
             key={category._id}
             type="button"
-            className={`adminmenu__chip ${
-              activeCategoryId === category._id ? "adminmenu__chip--active" : ""
+            className={`adminmenu__item ${
+              activeCategoryId === category._id ? "adminmenu__item--active" : ""
             }`}
             onClick={() => setActiveCategoryId(category._id)}
           >

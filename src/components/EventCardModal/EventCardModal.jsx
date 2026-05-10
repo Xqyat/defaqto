@@ -1,6 +1,6 @@
 import ModalWrapper from "../ModalWrapper/ModalWrapper.jsx";
 import "./EventCardModal.css";
-import Texture from "../../assets/images/DefaqtoTexture.png";
+import { API_BASE_URL } from "../../config.js";
 
 const EventCardModal = ({ isOpen, onClose, event }) => {
   if (!isOpen || !event) return null;
@@ -24,7 +24,7 @@ const EventCardModal = ({ isOpen, onClose, event }) => {
         aria-describedby="event-modal-description"
       >
         <div className="event_modal_card-img">
-          <img src={`${event.img}`} alt={event.name} />
+          <img src={`${API_BASE_URL}${event.img}`} alt={event.name} />
         </div>
         <div className="event_modal_card-info">
           <h3 id="event-modal-title" className="event_modal_card-info-name">

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { API_BASE_URL } from '../../config';
 import AdminModal from "../../components/AdminModal/AdminModal";
 import "./AdminEvents.css";
+import Button from "../../components/Button/Button";
 
 const AdminEvents = () => {
   const [events, setEvents] = useState([]);
@@ -14,6 +16,8 @@ const AdminEvents = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
+
+  const [expandedDescriptions, setExpandedDescriptions] = useState({});
 
   const [newItem, setNewItem] = useState({
     _id: "",
@@ -35,7 +39,7 @@ const AdminEvents = () => {
         setLoading(true);
         const token = localStorage.getItem("adminToken");
 
-        const response = await fetch("/api/events", {
+        const response = await fetch(`${API_BASE_URL}/api/events`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -103,7 +107,7 @@ const AdminEvents = () => {
         formData.append("img", data.img);
       }
 
-      const response = await fetch("/api/admin/events", {
+      const response = await fetch(`${API_BASE_URL}/api/admin/events`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -186,7 +190,7 @@ const AdminEvents = () => {
         formData.append("img", data.img);
       }
 
-      const response = await fetch(`/api/admin/events/${itemId}`, {
+      const response = await fetch(`${API_BASE_URL}/api/admin/events/${itemId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -230,7 +234,7 @@ const AdminEvents = () => {
       const token = localStorage.getItem("adminToken");
 
       const promises = selectedItems.map((id) =>
-        fetch(`/api/admin/events/${id}`, {
+        fetch(`${API_BASE_URL}/api/admin/events/${id}`, {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
         })
@@ -253,6 +257,13 @@ const AdminEvents = () => {
       console.error("Ошибка удаления:", err);
       alert("Ошибка сети");
     }
+  };
+
+  const toggleDescription = (itemId) => {
+    setExpandedDescriptions((prev) => ({
+      ...prev,
+      [itemId]: !prev[itemId],
+    }));
   };
 
   return (
@@ -329,6 +340,9 @@ const AdminEvents = () => {
         {events.map((event, index) => {
           const itemId = event._id || event.id || `temp-${index}`;
           const isSelected = selectedItems.includes(itemId);
+          const eventDate = event.date ? new Date(event.date) : null;
+          const dayOfWeek = eventDate ? eventDate.getDay() : -1;
+          const isFridayOrSaturday = dayOfWeek === 5 || dayOfWeek === 6;
 
           const entranceText =
             event.entranceType === "paid"
@@ -344,7 +358,7 @@ const AdminEvents = () => {
               key={itemId}
               className={`adminevents_item ${
                 isSelected ? "adminevents_item--selected" : ""
-              }`}
+                } ${isFridayOrSaturday ? "adminevents_item--weekend" : ""}`}
             >
               <div className="adminevents_item-top">
                 <label className="adminevents_item-check">
@@ -360,10 +374,26 @@ const AdminEvents = () => {
 
               <div className="adminevents_item-content">
                 <div className="adminevents_item-content-img">
-                  <img src={`${event.img}`} alt={event.name} /> 
+                  <img src={`${API_BASE_URL}${event.img}`} alt={event.name} /> 
                 </div>
                 <h3 className="adminevents_item-title">{event.name}</h3>
-                <p className="adminevents_item-description">{event.description}</p>
+                {event.description && event.description.length > 100 ? (
+                  <div className="adminevents_item-description-wrapper">
+                    <p className="adminevents_item-description">
+                      {expandedDescriptions[itemId]
+                        ? event.description
+                        : event.description.slice(0, 100) + '...'}
+                    </p>
+                    <Button
+                      className="adminevents_item-description-toggle"
+                      onClick={() => toggleDescription(itemId)}
+                    >
+                      {expandedDescriptions[itemId] ? 'Скрыть' : 'Читать далее'}
+                    </Button>
+                  </div>
+                ) : (
+                  <p className="adminevents_item-description">{event.description}</p>
+                )}
 
                 <div className="adminevents_item-meta">
                   <p><span>Дата:</span> {event.date}</p>

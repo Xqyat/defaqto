@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { API_BASE_URL } from '../../config';
 import { Helmet } from "react-helmet-async";
 import EventCard from "../../components/EventCard/EventCard";
 import EventCardModal from "../../components/EventCardModal/EventCardModal";
@@ -15,7 +16,7 @@ function Home() {
   useEffect(() => {
     async function fetchEvents() {
       try {
-        const response = await fetch("/api/events");
+        const response = await fetch(`${API_BASE_URL}/api/events`);
 
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
@@ -81,8 +82,12 @@ function Home() {
         </li>
       );
     }
-
-    return upcomingEvents.map((event) => (
+    
+    return upcomingEvents.map((event) => {
+      const eventDate = event.date ? new Date(event.date) : null;
+      const dayOfWeek = eventDate ? eventDate.getDay() : -1;
+      const weekendClass = (dayOfWeek === 5 || dayOfWeek === 6) ? 'event_card--weekend' : '';
+      return(
       <li className="home-events__item" key={event.id || event._id}>
         <EventCard
           img={event.img}
@@ -92,10 +97,12 @@ function Home() {
           time={event.time}
           entranceType={event.entranceType}
           entrancePrice={event.entrancePrice}
+          className={weekendClass}
           onClick={() => handleEventClick(event)}
         />
       </li>
-    ));
+      )
+    });
   }
 
   return (

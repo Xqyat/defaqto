@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 import './AdminLogin.css';
 import Button from '../../components/Button/Button';
 
@@ -12,7 +13,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/admin/login', {
+      const res = await axios.post(`${API_BASE_URL}/api/admin/login`, {
         login,
         password,
       });

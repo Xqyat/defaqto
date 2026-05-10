@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from '../../config';
 import { Link } from "react-router-dom";
 import "./AdminPanel.css";
 
@@ -19,7 +20,7 @@ const AdminPanel = () => {
 
         const token = localStorage.getItem("adminToken");
 
-        const response = await fetch("/api/admin/dashboard", {
+        const response = await fetch(`${API_BASE_URL}/api/admin/dashboard`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -49,7 +50,7 @@ const AdminPanel = () => {
       <main className="admin-dashboard">
         <div className="admin-dashboard__container">
           <div className="admin-dashboard__hero">
-            <h1 className="admin-dashboard__title">Дэшборд</h1>
+            <h1 className="admin-dashboard__title">Дашборд</h1>
             <p className="admin-dashboard__subtitle">Загрузка данных...</p>
           </div>
         </div>
@@ -62,7 +63,7 @@ const AdminPanel = () => {
       <main className="admin-dashboard">
         <div className="admin-dashboard__container">
           <div className="admin-dashboard__hero">
-            <h1 className="admin-dashboard__title">Дэшборд</h1>
+            <h1 className="admin-dashboard__title">Дашборд</h1>
             <p className="admin-dashboard__error">{error}</p>
           </div>
         </div>
@@ -74,8 +75,7 @@ const AdminPanel = () => {
     <main className="admin-dashboard">
       <div className="admin-dashboard__container">
         <section className="admin-dashboard__hero">
-          <span className="admin-dashboard__eyebrow">Админ-панель DeFAQto</span>
-          <h1 className="admin-dashboard__title">Дэшборд</h1>
+          <h1 className="admin-dashboard__title">Дашборд</h1>
           <p className="admin-dashboard__subtitle">
             Краткий обзор контента сайта и быстрый переход к управлению событиями и меню
           </p>

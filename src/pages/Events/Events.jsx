@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from "react-helmet-async";
+import { API_BASE_URL } from '../../config';
 import EventCard from '../../components/EventCard/EventCard.jsx';
 import EventCardModal from '../../components/EventCardModal/EventCardModal.jsx';
 import Button from "../../components/Button/Button.jsx";
@@ -11,9 +12,8 @@ function Events() {
     const [visibleCount, setVisibleCount] = useState(7); 
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        fetch('/api/events')
+    useEffect(() => {        
+        fetch(`${API_BASE_URL}/api/events`)
             .then(r => r.json())
             .then(setEvents)
             .catch(console.error)
@@ -49,20 +49,27 @@ function Events() {
             </Helmet>
             <main className="events page-container">
                 <div className="events-cardlist">
-                    {displayedEvents.map(event => (
-                        <EventCard
-                            key={event.id}
-                            {...event}
-                            onClick={() => handleEventClick(event)}
-                        />
-                    ))}
+                    {displayedEvents.map(event => {
+                        const eventDate = event.date ? new Date(event.date) : null;
+                        const dayOfWeek = eventDate ? eventDate.getDay() : -1;
+                        const weekendClass = (dayOfWeek === 5 || dayOfWeek === 6) ? 'event_card--weekend' : '';
+                    
+                        return (
+                            <EventCard
+                                key={event.id}
+                                {...event}
+                                className={weekendClass}
+                                onClick={() => handleEventClick(event)}
+                            />
+                        );
+                    })}
                 </div>
 
                 {events.length === 0 && <p className="events-empty">Событий пока нет</p>}
 
                 {visibleCount < events.length && (
                     <div className="events-controls">
-                        <Button className="events-more-button" onClick={() => setVisibleCount(prev => prev + 7)}>
+                        <Button className="events-more-button" onClick={() => setVisibleCount(prev => prev + 8)}>
                             Далее...
                         </Button>
                     </div>

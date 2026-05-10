@@ -1,7 +1,8 @@
 import "./EventCard.css";
+import { API_BASE_URL } from "../../config";
 
 function EventCard ({ img, name, description, date, time, entranceType,
-    entrancePrice, onClick  }) {
+    entrancePrice, onClick, className  }) {
     const formattedDate = date
     ? new Date(date).toLocaleDateString('ru-RU')
     : '';
@@ -16,9 +17,9 @@ function EventCard ({ img, name, description, date, time, entranceType,
       : 'Бесплатный';
     return(
         <>
-            <div className="event_card" onClick={onClick} role="button" tabIndex={0}>
+            <div className={`event_card ${className || ''}`} onClick={onClick} role="button" tabIndex={0}>
                 <div className="event_card-img">
-                    <img src={`${img}`} alt={name} />
+                    <img src={`${API_BASE_URL}${img}`} alt={name} />
                 </div>
                 <div className="event_card-info">
                     <h3 className="event_card-info-name">{name}</h3>

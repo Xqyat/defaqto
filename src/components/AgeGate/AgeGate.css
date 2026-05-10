@@ -1,0 +1,46 @@
+.age-gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    background-color: #f6f6f6;
+    padding: 2rem;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .age-gate__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .age-gate__title {
+    font-family: 'Artistic', serif;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: #2B2B2B;
+    text-align: center;
+  }
+  
+  .age-gate__text {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    line-height: 1.4;
+    color: #2B2B2B;
+    margin: 0;
+  }
+  
+  .age-gate__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
